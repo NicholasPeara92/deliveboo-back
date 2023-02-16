@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('type', 100);
             $table->text('description');
-            $table->decimal('price', 5,2);
+            $table->decimal('price', 5);
             $table->string('image')->nullable();
             $table->boolean('is_available')->default(true);
             $table->string('slug')->unique();
