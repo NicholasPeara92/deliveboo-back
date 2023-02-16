@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -15,7 +16,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user_id();
+        @dd($user);
+        $products = Product::where('restaurant', $user);
+
+        return view('admin.product.index', compact('products'));
     }
 
     /**
