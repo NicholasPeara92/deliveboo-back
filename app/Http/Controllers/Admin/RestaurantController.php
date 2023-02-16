@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use App\Models\Category;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        $category = Category::all();
+        
+        return view('admin.restaurants.create', compact('categories'));
     }
 
     /**
