@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
+            $table->string('surname', 150);
+            $table->string('address');
+            $table->string('telephone', 10);
+            $table->string('email');
+            $table->decimal('total', 5,2);
             $table->timestamps();
         });
     }
