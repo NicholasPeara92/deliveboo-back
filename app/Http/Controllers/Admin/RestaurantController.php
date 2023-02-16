@@ -50,6 +50,8 @@ class RestaurantController extends Controller
         $new_restaurant = new Restaurant();
         $new_restaurant->fill($data);
         $new_restaurant->slug = Str::slug($new_restaurant->name);
+        $user = Auth::user()->id;
+        $new_restaurant->user_id = $user;
 
         $new_restaurant->save();
 
