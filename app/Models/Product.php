@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    public function restaurant()
+    {
+        return $this->belongsTo('App\Models\Restaurant');
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany('App\Models\Order');
+    }
 }
