@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    use HasFactory;
+
+    protected $guarded = ['slug'];
+    
     public function restaurants()
     {
         return $this->belongsToMany('App\Models\Restaurant');

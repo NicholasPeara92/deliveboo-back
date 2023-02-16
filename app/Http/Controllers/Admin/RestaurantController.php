@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -45,7 +46,15 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        $data = $request->validated();
+        $new_restaurant = new Restaurant();
+        $new_restaurant->fill($data);
+        $new_restaurant->slug = Str::slug($new_restaurant->name);
+
+        $new_restaurant->save();
+
+        return redirect()->route('admin.restaurant.index')->with('message', "Il ristorante $new_restaurant->name è stato creato");
+        
     }
 
     /**
