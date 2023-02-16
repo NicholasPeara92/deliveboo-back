@@ -34,7 +34,7 @@ class RestaurantController extends Controller
         $restaurantForm = new Restaurant();
         $categories = Category::all();
         
-        return view('admin.restaurants.create', compact(['restaurantForm', 'categories']));
+        return view('admin.restaurant.create', compact(['restaurantForm', 'categories']));
     }
 
     /**
