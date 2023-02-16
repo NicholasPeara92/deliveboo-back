@@ -15,7 +15,7 @@
         @endif
         {{-- /gestione degli errori di validazione --}}
         <div>
-            <form action="{{route('admin.restaurant.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('admin.restaurant.store')}}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nome Ristorante</label>

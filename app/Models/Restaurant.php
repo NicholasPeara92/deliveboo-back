@@ -9,7 +9,7 @@ class Restaurant extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['slug', 'user_id'];
+    protected $guarded = ['slug'];
     
     public function user()
     {
