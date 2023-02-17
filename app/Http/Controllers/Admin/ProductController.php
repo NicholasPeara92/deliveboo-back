@@ -53,7 +53,7 @@ class ProductController extends Controller
         $new_product->slug = Str::slug($new_product->name);
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
-        $new_product->restaurant_id = $restaurant;
+        $new_product->restaurant_id = $restaurant->id;
         $new_product->save();
 
         return redirect()->route('admin.product.index')->with('message', "Il prodotto $new_product->name è stato creato");
