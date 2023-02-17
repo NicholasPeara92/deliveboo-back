@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -17,12 +18,14 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        // Prendo l'id del ristorante dello user
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
-
+        // Seleziono solo i prodotti con la foreign key di quel ristorante
         $products = Product::where('restaurant_id', $restaurant->id)->get();
 
+        @dd($products);
         return view('admin.product.index', compact('products'));
     }
 
@@ -32,8 +35,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        $products = Product::all();
+        return view('admin.product.create', compact('products'));
     }
 
     /**
@@ -44,7 +48,14 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $data = $request->validated();
+        $new_product = new Product();
+        $new_product->fill($data);
+        $new_product->slug = Str::slug($new_product->name);
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+        $new_product->restaurant_id = $restaurant;
+        $new_product->save();
     }
 
     /**
