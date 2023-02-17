@@ -34,9 +34,6 @@ class RestaurantController extends Controller
     {
         $restaurantForm = new Restaurant();
         $categories = Category::all();
-
-        $user = Auth::user()->id;
-        $restaurant = Restaurant::where('user_id', $user)->first();
         
         return view('admin.restaurant.create', compact(['restaurantForm', 'categories']));
     }
@@ -69,7 +66,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurant.show', compact('restaurant'));
     }
 
     /**
@@ -80,7 +77,8 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        $categories = Category::all();
+        return view('admin.restaurant.edit', compact('restaurant', 'categories'));
     }
 
     /**
@@ -92,7 +90,18 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        $data = $request->validated();
+
+        $old_name = $restaurant->name;
+        $restaurant->slug = Str::slug($data['name']);
+        
+        $restaurant->update($data);
+
+        $categories = isset($data['categories']) ? $data['categories'] : [];
+        $restaurant->categories()->sync($categories);
+        
+
+        return redirect()->route('admin.restaurant.index')->with('message', "Il ristorante $old_name è stato aggiornato");
     }
 
     /**
@@ -103,6 +112,10 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        $old_name = $restaurant->name;
+
+        $restaurant->delete();
+
+        return redirect()->route('admin.restaurant.index')->with('message', "Il ristorante $old_name è stato cancellato");
     }
 }
