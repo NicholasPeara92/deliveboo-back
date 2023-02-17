@@ -10,6 +10,11 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = ['slug', 'is_available'];
+
+    protected function getImageUrlAttribute()
+    {
+        return $this->cover_image ? asset("storage/$this->cover_image") : "https://placeholder.com/assets/images/150x150-2-500x500.png";
+    }
     
     public function restaurant()
     {
