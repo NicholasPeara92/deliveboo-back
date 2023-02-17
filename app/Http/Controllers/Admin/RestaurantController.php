@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
@@ -59,6 +60,12 @@ class RestaurantController extends Controller
         $new_restaurant->slug = Str::slug($new_restaurant->name);
         $user = Auth::user()->id;
         $new_restaurant->user_id = $user;
+
+        if(isset($data['image'])){
+            $new_restaurant->cover_image = Storage::disk('public')->put('uploads', $data['image']);
+
+        }
+
         $new_restaurant->save();
 
         return redirect()->route('admin.restaurant.index')->with('message', "Il ristorante $new_restaurant->name è stato creato");
@@ -100,6 +107,13 @@ class RestaurantController extends Controller
 
         $old_name = $restaurant->name;
         $restaurant->slug = Str::slug($data['name']);
+
+        if ( isset($data['image']) ) {
+            if($restaurant->image ) {
+                Storage::disk('public')->delete($restaurant->image);
+            }
+            $data['image'] = Storage::disk('public')->put('uploads', $data['image']);
+        }
         
         $restaurant->update($data);
 
@@ -119,6 +133,11 @@ class RestaurantController extends Controller
     public function destroy(Restaurant $restaurant)
     {
         $old_name = $restaurant->name;
+
+        if( $restaurant->image ) {
+            Storage::disk('public')->delete($restaurant->image);
+        }
+
 
         $restaurant->delete();
 
