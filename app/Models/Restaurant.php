@@ -13,7 +13,7 @@ class Restaurant extends Model
 
     protected function getImageUrlAttribute()
     {
-        return $this->cover_image ? asset("storage/$this->cover_image") : "https://placeholder.com/assets/images/150x150-2-500x500.png";
+        return $this->image ? asset("storage/$this->image") : "https://placeholder.com/assets/images/150x150-2-500x500.png";
     }
     
     public function user()
