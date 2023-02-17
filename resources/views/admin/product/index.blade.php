@@ -23,9 +23,9 @@
           <td>{{ $product->description }}</td>
           <td>{{ $product->price }}</td>
           <td>
-            <a href="{{ route('admin.product.show', $product->slug) }}" class="btn btn-success"><i
+            <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-success"><i
                 class="fa-solid fa-eye"></i></a>
-            <a href="{{ route('admin.product.edit', $product->slug) }}" class="btn btn-warning"><i
+            <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-warning"><i
                 class="fa-solid fa-pencil"></i></a>
             <form action="{{ route('admin.product.destroy', $product) }}" method="POST" class="d-inline-block">
               @csrf
