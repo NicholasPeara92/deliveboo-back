@@ -5,11 +5,10 @@
     <a href="{{ route('admin.product.index', $product->id) }}" class="btn btn-success">Menù</i></a>
     <div class="mt-4">
       <div class="text-center">
-        @if ($project->cover_image)
-          <img class="w-25" src="{{ asset("storage/$project->cover_image") }}" alt="{{ $project->title }}">
+        @if ($product->image)
+          <img class="w-25" src="{{ asset("storage/$product->image") }}" alt="{{ $product->name }}">
         @endif
       </div>
-      {{ $project->description }}
     </div>
     <h1>{{ $product->name }}</h1>
     {{-- imgage --}}
