@@ -55,6 +55,8 @@ class ProductController extends Controller
         $restaurant = Restaurant::where('user_id', $user)->first();
         $new_product->restaurant_id = $restaurant;
         $new_product->save();
+
+        return redirect()->route('admin.product.index')->with('message', "Il prodotto $new_product->name è stato creato");
     }
 
     /**
