@@ -13,7 +13,7 @@ class UpdateRestaurantRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateRestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:restaurants|string|max:150',
+            'address' => 'required|string',
+            'image' => 'nullable|image|max:2048',
+            'telephone' => 'required|unique:restaurants|string|max:10', 
+            'iva' => 'required|unique:restaurants|string|max:15', 
         ];
     }
 }
