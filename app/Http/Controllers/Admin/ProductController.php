@@ -101,7 +101,7 @@ class ProductController extends Controller
             if( $product->image ) {
                 Storage::delete($product->image);
             }
-            $product->cover_image = Storage::disk('public')->put('uploads', $data['image']);
+            $product->image = Storage::disk('public')->put('uploads', $data['image']);
         }
 
         if( isset($data['no_image']) && $product->image  ) {
