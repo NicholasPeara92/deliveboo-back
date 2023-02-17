@@ -36,7 +36,7 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::where('user_id', $user)->first();
 
         if ($restaurant !== null) { //checks if the user has a restaurant or not 
-            return redirect()->route('admin.restaurant.index')->with(['message'=>'you can not create another shop']);
+            return redirect()->route('admin.restaurant.index')->with(['message'=>'Non puoi creare un altro ristorante']);
         }else{
             $restaurantForm = new Restaurant();
             $categories = Category::all();
@@ -62,7 +62,6 @@ class RestaurantController extends Controller
         $new_restaurant->save();
 
         return redirect()->route('admin.restaurant.index')->with('message', "Il ristorante $new_restaurant->name è stato creato");
-        
     }
 
     /**
