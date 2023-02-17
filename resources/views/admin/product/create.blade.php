@@ -25,7 +25,7 @@
         <div class="mb-3">
           <label for="type" class="form-label">Tipologia</label>
           <input type="text" class="form-control" id="type" name="type"
-            placeholder="Inserisci l'indirizzo">{{ old('type') }}
+            placeholder="Inserisci l'indirizzo" {{ old('type') }}>
         </div>
         <div class="mb-3">
           <label for="description" class="form-label d-block">Descrizione</label>
@@ -34,7 +34,7 @@
         <div class="mb-3">
           <label for="price" class="form-label">Inserisci il prezzo</label>
           <input type="number" class="form-control" id="price" name="price"
-            placeholder="Inserisci il prezzo" step="0.01">{{ old('price') }}
+            placeholder="Inserisci il prezzo" step="0.01" {{ old('price') }}>
         </div>
 
         {{-- <div class="mb-3">
