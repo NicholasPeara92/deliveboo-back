@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -53,6 +54,11 @@ class ProductController extends Controller
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
         $new_product->restaurant_id = $restaurant->id;
+
+        if( isset($data['image']) ){
+            $new_product->image = Storage::disk('public')->put('uploads', $data['image']);
+        }
+
         $new_product->save();
 
         return redirect()->route('admin.product.index')->with('message', "Il prodotto $new_product->name è stato creato");
@@ -90,6 +96,18 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product)
     {
         $data = $request->all();
+
+        if ( isset($data['image']) ) {
+            if( $product->image ) {
+                Storage::delete($product->image);
+            }
+            $product->image = Storage::disk('public')->put('uploads', $data['image']);
+        }
+
+        if( isset($data['no_image']) && $product->image  ) {
+            Storage::disk('public')->delete($product->image);
+            $product->image = null;
+        }
 
         $product->update($data);
 
