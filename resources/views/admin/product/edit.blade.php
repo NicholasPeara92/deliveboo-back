@@ -16,7 +16,7 @@
     @endif
     {{-- /gestione degli errori di validazione --}}
     <div>
-      <form action="{{ route('admin.product.update', $product->id) }}" method="POST">
+      <form action="{{ route('admin.product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -36,7 +36,7 @@
           <input type="number" class="form-control" id="price" name="price" value="{{ $product->price }}" step="0.01" {{ old('price') }}>
         </div>
 
-        {{-- <div class="mb-3">
+        <div class="mb-3">
                     <label for="cover_image" class="form-label">Immagine</label>
                     <div class="mb-2">
                     <script>
@@ -55,7 +55,7 @@
                     <div class="mb-3">
                     <label for="preview_link" class="form-label">Link all'anteprima del Progetto</label>
                     <input type="text" class="form-control" id="preview_link" name="preview_link" placeholder="Inserisci il link" value="{{old('preview_link')}}">
-                    </div> --}}
+                    </div>
         {{-- <div class="mb-3">
                     @foreach ($categories as $technology)
                         <div class="form-check form-check-inline">
