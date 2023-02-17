@@ -17,12 +17,14 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        // Prendo l'id del ristorante dello user
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
-
+        // Seleziono solo i prodotti con la foreign key di quel ristorante
         $products = Product::where('restaurant_id', $restaurant->id)->get();
 
+        @dd($products);
         return view('admin.product.index', compact('products'));
     }
 
