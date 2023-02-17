@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('telephone', 10);
             $table->string('email');
             $table->decimal('total', 5,2);
+            $table->datetime('create_order');
             $table->timestamps();
         });
     }
