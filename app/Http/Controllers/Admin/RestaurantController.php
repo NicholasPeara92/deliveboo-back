@@ -32,10 +32,17 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        $restaurantForm = new Restaurant();
-        $categories = Category::all();
-        
-        return view('admin.restaurant.create', compact(['restaurantForm', 'categories']));
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+
+        if ($restaurant !== null) { //checks if the user has a restaurant or not 
+            return redirect()->route('admin.restaurant.index')->with(['message'=>'you can not create another shop']);
+        }else{
+            $restaurantForm = new Restaurant();
+            $categories = Category::all();
+            
+            return view('admin.restaurant.create', compact(['restaurantForm', 'categories']));
+        }
     }
 
     /**
