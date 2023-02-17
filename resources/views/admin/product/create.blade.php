@@ -38,25 +38,21 @@
         </div>
 
         <div class="mb-3">
-                    <label for="cover_image" class="form-label">Immagine</label>
-                    <div class="mb-2">
-                    <script>
-                        var loadFile = function(event) {
-                        var output = document.getElementById('output');
-                        output.src = URL.createObjectURL(event.target.files[0]);
-                        output.onload = function() {
-                            URL.revokeObjectURL(output.src) // free memory
-                        }
-                        };
-                    </script>
-                    </div>
-                    <img width="100" id="output">
-                    <input type="file" class="form-control" id="cover_image" name="cover_image" value="{{old('cover_image')}}" onchange="loadFile(event)">          
-                    </div>
-                    <div class="mb-3">
-                    <label for="preview_link" class="form-label">Link all'anteprima del Progetto</label>
-                    <input type="text" class="form-control" id="preview_link" name="preview_link" placeholder="Inserisci il link" value="{{old('preview_link')}}">
-                    </div>
+            <label for="image" class="form-label">Immagine</label>
+            <div class="mb-2">
+                <script>
+                    var loadFile = function(event) {
+                    var output = document.getElementById('output');
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                    output.onload = function() {
+                        URL.revokeObjectURL(output.src) // free memory
+                    }
+                    };
+                </script>
+            </div>
+            <img width="100" id="output">
+            <input type="file" class="form-control" id="image" name="image" value="{{old('image')}}" onchange="loadFile(event)">          
+        </div>
         {{-- <div class="mb-3">
                     @foreach ($categories as $technology)
                         <div class="form-check form-check-inline">
@@ -64,7 +60,7 @@
                         <label class="form-check-label" for="{{$technology->slug}}">{{$technology->name}}</label>
                         </div>
                     @endforeach
-                    </div> --}}
+        </div> --}}
         <button type="submit" class="btn btn-success mt-5">Conferma</button>
       </form>
       <a href="{{ route('admin.product.index') }}" class="btn btn-primary my-4">Torna alla Lista</a>
