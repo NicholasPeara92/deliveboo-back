@@ -46,7 +46,6 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        @dd($request);
         $data = $request->validated();
         $new_product = new Product();
         $new_product->fill($data);
