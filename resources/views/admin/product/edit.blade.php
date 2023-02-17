@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <h1 class="my-3">Modifica: {{ $product->name }}</h1>
+    <h1 class="my-3">Modifica: {{ $product->name}}</h1>
 
     {{-- gestione degli errori di validazione --}}
     @if ($errors->any())
@@ -33,13 +33,13 @@
         </div>
         <div class="mb-3">
           <label for="price" class="form-label">Inserisci il prezzo</label>
-          <input type="number" class="form-control" id="price" name="price" value="{{ $product->price }}"
-            step="0.01" {{ old('price') }}>
+          <input type="number" class="form-control" id="price" name="price" value="{{ $product->price }}" step="0.01" {{ old('price') }}>
         </div>
 
         <div class="mb-3">
           <label for="image" class="form-label">Immagine</label>
           <div class="mb-2">
+            <img width="100" id="output" @if($product->image) src="{{asset("storage/$product->image")}}" @endif>
             <script>
               var loadFile = function(event) {
                 var output = document.getElementById('output');
@@ -50,10 +50,25 @@
               };
             </script>
           </div>
-          <img width="100" id="output">
-          <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}"
-            onchange="loadFile(event)">
-        </div>
+            @if($product->image)
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="no_image" name="no_image">
+                <label class="form-check-label" for="no_image">Nessuna immagine</label>
+              </div>
+            @endif
+            <input type="file" class="form-control" id="image" name="image" value="{{old('image')}}" onchange="loadFile(event)">          
+            <script>
+              const inputCheckbox = document.getElementById('no_image');
+              const inputFile = document.getElementById('image');
+              inputCheckbox.addEventListener('change', function() {
+                if( inputCheckbox.checked ) {
+                  inputFile.disabled = true;
+                } else {
+                  inputFile.disabled = false;
+                }
+              });
+            </script>
+          </div>
         {{-- <div class="mb-3">
                     @foreach ($categories as $technology)
                         <div class="form-check form-check-inline">

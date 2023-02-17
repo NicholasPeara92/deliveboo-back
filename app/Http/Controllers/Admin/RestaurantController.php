@@ -114,7 +114,7 @@ class RestaurantController extends Controller
             }
             $data['image'] = Storage::disk('public')->put('uploads', $data['image']);
         }
-        
+
         $restaurant->update($data);
 
         $categories = isset($data['categories']) ? $data['categories'] : [];
