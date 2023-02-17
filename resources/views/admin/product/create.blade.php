@@ -34,7 +34,7 @@
         <div class="mb-3">
           <label for="price" class="form-label">Inserisci il prezzo</label>
           <input type="number" class="form-control" id="price" name="price"
-            placeholder="Inserisci il prezzo">{{ old('price') }}
+            placeholder="Inserisci il prezzo" step="0.01">{{ old('price') }}
         </div>
 
         {{-- <div class="mb-3">
