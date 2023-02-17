@@ -23,10 +23,16 @@ class ProductController extends Controller
         // Prendo l'id del ristorante dello user
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
-        // Seleziono solo i prodotti con la foreign key di quel ristorante
-        $products = Product::where('restaurant_id', $restaurant->id)->get();
 
-        return view('admin.product.index', compact('products'));
+        if ($restaurant === null) { //checks if the user has a restaurant or not 
+            return redirect()->route('admin.restaurant.create');
+        }else{
+            
+            $products = Product::where('restaurant_id', $restaurant->id)->get();
+            return view('admin.product.index', compact('products'));
+        }
+        // Seleziono solo i prodotti con la foreign key di quel ristorante
+        
     }
 
     /**
