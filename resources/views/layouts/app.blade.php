@@ -48,9 +48,10 @@
 
     <div class="container-fluid vh-100">
       <div class="row h-100">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse position-fixed h-100">
           <div class="position-sticky pt-3">
             <ul class="nav flex-column">
+                {{-- Tasto dashboard --}}
               <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.dashboard') }}">
@@ -58,6 +59,23 @@
                   Dashboard
                 </a>
               </li>
+              {{-- Tasto index Restaurant --}}
+              <li class="nav-item">
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.index' ? 'bg-secondary' : '' }}"
+                  href="{{ route('admin.restaurant.index') }}">
+                  <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i>
+                  Il mio ristorante
+                </a>
+              </li>
+              {{-- Tasto create Restaurant --}}
+              <li class="nav-item">
+                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.create' ? 'bg-secondary' : '' }}"
+                  href="{{ route('admin.restaurant.create') }}">
+                  <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i>
+                  Crea ristorante
+                </a>
+              </li>
+
             </ul>
           </div>
         </nav>
