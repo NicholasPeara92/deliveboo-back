@@ -25,17 +25,17 @@
         <div class="mb-3">
           <label for="address" class="form-label">Indirizzo</label>
           <input type="text" class="form-control" id="address" name="address"
-            placeholder="Inserisci l'indirizzo">{{ old('address') }}
+            placeholder="Inserisci l'indirizzo" {{ old('address') }}>
         </div>
         <div class="mb-3">
           <label for="iva" class="form-label">Partita IVA</label>
           <input type="text" class="form-control" id="iva" name="iva"
-            placeholder="Inserisci la Partita IVA">{{ old('iva') }}
+            placeholder="Inserisci la Partita IVA" {{ old('iva') }}>
         </div>
         <div class="mb-3">
           <label for="telephone" class="form-label">Inserisci il numero di telefono</label>
           <input type="text" class="form-control" id="telephone" name="telephone"
-            placeholder="Inserisci il numero di telefono">{{ old('telephone') }}
+            placeholder="Inserisci il numero di telefono" {{ old('telephone') }}>
         </div>
 
         {{-- <div class="mb-3">
