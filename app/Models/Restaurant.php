@@ -10,6 +10,11 @@ class Restaurant extends Model
     use HasFactory;
 
     protected $guarded = ['slug'];
+
+    protected function getImageUrlAttribute()
+    {
+        return $this->image ? asset("storage/$this->image") : "https://placeholder.com/assets/images/150x150-2-500x500.png";
+    }
     
     public function user()
     {
