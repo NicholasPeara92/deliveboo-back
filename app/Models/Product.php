@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['slug'];
+    protected $guarded = ['slug', 'is_available'];
     
     public function restaurant()
     {
