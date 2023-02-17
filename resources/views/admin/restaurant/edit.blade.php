@@ -17,25 +17,26 @@
     <div>
       <form action="{{ route('admin.restaurant.update', $restaurant) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="mb-3">
           <label for="name" class="form-label">Nome Ristorante</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Inserisci il nome"
+          <input type="text" class="form-control" id="name" name="name" 
             value="{{ old('name', $restaurant->name) }}">
         </div>
         <div class="mb-3">
           <label for="address" class="form-label">Indirizzo</label>
-          <input type="text" class="form-control" id="address" name="address"
-            placeholder="Inserisci l'indirizzo">{{ old('address', $restaurant->address) }}
+          <input type="text" class="form-control" id="address" name="address" 
+            value="{{ old('address', $restaurant->address) }}">
         </div>
         <div class="mb-3">
           <label for="iva" class="form-label">Partita IVA</label>
           <input type="text" class="form-control" id="iva" name="iva"
-            placeholder="Inserisci la Partita IVA">{{ old('iva', $restaurant->iva) }}
+            value="{{ old('iva', $restaurant->iva) }}">
         </div>
         <div class="mb-3">
-          <label for="telephone" class="form-label">Inserisci il numero di telefono</label>
+          <label for="telephone" class="form-label">Modifica il numero di telefono</label>
           <input type="text" class="form-control" id="telephone" name="telephone"
-            placeholder="Inserisci il numero di telefono">{{ old('telephone', $restaurant->telephone) }}
+            value="{{ old('telephone', $restaurant->telephone) }}">
         </div>
 
         <div class="mb-3">
@@ -68,7 +69,7 @@
                     </div> --}}
         <button type="submit" class="btn btn-success mt-5">Conferma</button>
       </form>
-      <a href="{{ route('admin.restaurant.index') }}" class="btn btn-primary my-4">Torna alla Lista</a>
+      <a href="{{ route('admin.restaurant.index') }}" class="btn btn-primary my-4">Torna al Ristorante</a>
     </div>
   </div>
 @endsection
