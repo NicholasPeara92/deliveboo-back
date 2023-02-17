@@ -122,6 +122,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        if( $product->image ) {
+            Storage::disk('public')->delete($product->image);
+        }
+        
         $product->delete();
 
         return redirect()->route('admin.product.index');
