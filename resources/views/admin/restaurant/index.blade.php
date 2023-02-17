@@ -14,5 +14,12 @@
         </div>
         @endif
         {{-- /gestione degli errori di validazione --}}
+        @if(session('message'))
+        <div class="alert alert-danger">
+            <ul class="list-unstyled">
+                <li>{{ session('message') }}</li>
+            </ul>
+        </div>
+        @endif
     </div>
 @endsection
