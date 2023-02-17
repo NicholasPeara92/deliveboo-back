@@ -27,7 +27,6 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::resource('restaurant', RestaurantController::class)->parameters(['restaurants' => 'restaurant:slug']);
     Route::resource('product', ProductController::class)->parameters(['products' => 'product:slug']);
-    
 });
 
 require __DIR__.'/auth.php';

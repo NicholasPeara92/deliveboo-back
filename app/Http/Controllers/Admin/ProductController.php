@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 
 class ProductController extends Controller
 {
@@ -17,9 +18,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $user = Auth::user_id();
-        @dd($user);
-        $products = Product::where('restaurant', $user);
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+
+        $products = Product::where('restaurant_id', $restaurant->id)->get();
 
         return view('admin.product.index', compact('products'));
     }

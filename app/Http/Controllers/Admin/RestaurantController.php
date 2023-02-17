@@ -34,6 +34,9 @@ class RestaurantController extends Controller
     {
         $restaurantForm = new Restaurant();
         $categories = Category::all();
+
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
         
         return view('admin.restaurant.create', compact(['restaurantForm', 'categories']));
     }
