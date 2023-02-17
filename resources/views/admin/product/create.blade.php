@@ -28,15 +28,13 @@
             placeholder="Inserisci l'indirizzo">{{ old('type') }}
         </div>
         <div class="mb-3">
-          <label for="iva" class="form-label">Descrizione</label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-          <input type="text" class="form-control" id="iva" name="iva"
-            placeholder="Inserisci la Partita IVA">{{ old('iva') }}
+          <label for="description" class="form-label d-block">Descrizione</label>
+          <textarea name="description" id="description" rows="5" class="w-100">{{ old('description') }}</textarea>
         </div>
         <div class="mb-3">
-          <label for="telephone" class="form-label">Inserisci il numero di telefono</label>
-          <input type="text" class="form-control" id="telephone" name="telephone"
-            placeholder="Inserisci il numero di telefono">{{ old('telephone') }}
+          <label for="price" class="form-label">Inserisci il prezzo</label>
+          <input type="number" class="form-control" id="price" name="price"
+            placeholder="Inserisci il prezzo">{{ old('price') }}
         </div>
 
         {{-- <div class="mb-3">
