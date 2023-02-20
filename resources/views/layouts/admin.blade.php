@@ -67,7 +67,7 @@
                 </a>
               </li>
               <li class="nav-item flex-grow-1 d-flex position-absolute" style="bottom:0;">
-                <a class="nav-link" style="margin-bottom: 70px;" href="{{ route('logout') }}"
+                <a class="nav-link" style="margin-bottom: 100px;" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
