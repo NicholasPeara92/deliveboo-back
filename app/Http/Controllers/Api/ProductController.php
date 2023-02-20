@@ -3,24 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Restaurant;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class RestaurantController extends Controller
+class ProductController extends Controller
 {
-    
     public function index()
     {
-        $restaurants = Restaurant::all();
-        return $restaurants;
+        $products = Product::all();
+        return $products;
     }
 
-  
     public function show($slug)
     {
         try {
-            $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
-            return $restaurant;
+            $product = Product::where('slug', $slug)->firstOrFail();
+            return $product;
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return response([
                 'error' => '404 Post not found'
@@ -28,4 +26,5 @@ class RestaurantController extends Controller
         }
     }
 
+   
 }
