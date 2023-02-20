@@ -70,7 +70,7 @@
                 <a class="nav-link" style="margin-bottom: 100px;" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
-                  {{ __('Logout') }}
+                          {{ __('Logout') }}
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
