@@ -56,10 +56,10 @@ class ProductController extends Controller
         $data = $request->validated();
         $new_product = new Product();
         $new_product->fill($data);
-        $new_product->slug = Str::slug($new_product->name);
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
         $new_product->restaurant_id = $restaurant->id;
+        $new_product->slug = Str::slug($new_product->restaurant_id." ".$new_product->name);
 
         if( isset($data['image']) ){
             $new_product->image = Storage::disk('public')->put('uploads', $data['image']);
@@ -115,7 +115,7 @@ class ProductController extends Controller
             $product->image = null;
         }
 
-        $product->slug = Str::slug($data['name']);
+        $product->slug = Str::slug($product->restaurant_id." ".$data['name']);
 
         $product->update($data);
 
