@@ -2,10 +2,10 @@
 
 @section('content')
   <div class="container">
-    <h1 class="my-3"><strong>Nome del Ristorante: </strong>{{ $restaurant->name }}</h1>
-    <h2><strong>Numero di telefono:</strong> +39 {{ $restaurant->telephone }}</h2>
-    <h2><strong>Indirizzo:</strong> {{ $restaurant->address }}</h2>
-    <h2><strong>Partita IVA:</strong> {{ $restaurant->iva }}</h2>
+    <h3 class="my-3"><strong>NOME DEL RISTORANTE: </strong>{{ $restaurant->name }}</h3>
+    <h4><strong>NUMERO DI TELEFONO:</strong> +39 {{ $restaurant->telephone }}</h4>
+    <h4><strong>INDIRIZZO:</strong> {{ $restaurant->address }}</h4>
+    <h4><strong>PARTITA IVA:</strong> {{ $restaurant->iva }}</h4>
 
     {{-- bottone edit --}}
     <a href="{{ route('admin.restaurant.edit', $restaurant) }}" class="mt-3 me-4 btn btn-warning"><i
