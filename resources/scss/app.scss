@@ -1,16 +1,4 @@
 @import "~bootstrap/scss/bootstrap";
 
-h3,
-h4,
-h5,
-th {
-    text-transform: uppercase;
-}
-
-#sidebarMenu {
-    max-width: 300px;
-
-    img {
-        max-width: 200px;
-    }
-}
+@import "./typography.scss";
+@import "./sidebar.scss";
