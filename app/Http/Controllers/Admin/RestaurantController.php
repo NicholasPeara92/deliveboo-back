@@ -141,8 +141,7 @@ class RestaurantController extends Controller
         if( $restaurant->image ) {
             Storage::disk('public')->delete($restaurant->image);
         }
-
-
+        
         $restaurant->delete();
 
         return redirect()->route('admin.restaurant.index')->with('message', "Il ristorante $old_name è stato cancellato");
