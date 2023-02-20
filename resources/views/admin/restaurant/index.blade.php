@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+<<<<<<< HEAD
         <h1 class="my-3"><strong>Nome del Ristorante: </strong>{{ $restaurant->name}}</h1>
         <h2><strong>Numero di telefono:</strong> +39 {{ $restaurant->telephone }}</h2>
         <h2><strong>Indirizzo:</strong> {{ $restaurant->address }}</h2>     
@@ -14,6 +15,11 @@
         <a href="{{ route('admin.restaurant.destroy', $restaurant->id) }}" class="mt-3 btn btn-danger"><i class="fa-solid fa-trash"></i><i>Elimina il tuo ristorante</i></a>
         
         {{-- gestione degli errori di validazione --}}
+=======
+        <h3 style="text-transform: uppercase;" class="my-3">{{ $restaurant->name}}</h3>
+        <a href="{{ route('admin.restaurant.edit', $restaurant) }}" class="btn btn-warning"><i class="fa-solid fa-pen"></i>Modifica il tuo ristorante</a>
+    {{-- gestione degli errori di validazione --}}
+>>>>>>> 4d38ef8a56cf6bb12242f6ad67ad260128b1e770
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul class="list-unstyled">
@@ -26,7 +32,7 @@
         {{-- /gestione degli errori di validazione --}}
        
         @if(session('message'))
-        <div class="alert alert-danger">
+        <div class="alert alert-danger my-4">
             <ul class="list-unstyled">
                 <li>{{ session('message') }}</li>
             </ul>
