@@ -115,6 +115,8 @@ class ProductController extends Controller
             $product->image = null;
         }
 
+        $product->slug = Str::slug($data['name']);
+
         $product->update($data);
 
         return redirect()->route('admin.product.index', $product->id);
