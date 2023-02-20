@@ -23,7 +23,7 @@
 
 <body>
   <div id="app">
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
+    <header class="navbar sticky-top text-bg-light p-3 flex-md-nowrap p-2 shadow">
       <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">DeliveBoo</a>
       <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,12 +46,12 @@
     <div class="container-fluid vh-100">
       <div class="row h-100">
         <nav id="sidebarMenu"
-          class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse position-fixed h-100">
+          class="col-md-3 col-lg-2 d-md-block sidebar collapse position-fixed h-100">
           <div class="position-sticky pt-3">
             <ul class="nav flex-column">
               {{-- Tasto dashboard --}}
               <li class="nav-item">
-                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+                <a class="nav-link text-black {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.dashboard') }}">
                   <i class="fa-solid fa-d fa-lg fa-fw"></i>
                   Dashboard
@@ -59,7 +59,7 @@
               </li>
               {{-- Tasto index Restaurant --}}
               <li class="nav-item">
-                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.index' ? 'bg-secondary' : '' }}"
+                <a class="nav-link text-black {{ Route::currentRouteName() == 'admin.restaurant.index' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.restaurant.index') }}">
                   <i class="fa-solid fa-home fa-lg fa-fw"></i>
                   Il mio ristorante
@@ -67,14 +67,14 @@
               </li>
               {{-- Tasto create Restaurant --}}
               <li class="nav-item">
-                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.create' ? 'bg-secondary' : '' }}"
+                <a class="nav-link text-black {{ Route::currentRouteName() == 'admin.restaurant.create' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.restaurant.create') }}">
                   <i class="fa-solid fa-utensils fa-lg fa-fw"></i>
                   Crea ristorante
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.product.index' ? 'bg-secondary' : '' }}"
+                <a class="nav-link text-black {{ Route::currentRouteName() == 'admin.product.index' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.product.index') }}">
                   <i class="fa-solid fa-burger fa-lg fa-fw"></i>
                   Vedi prodotti
