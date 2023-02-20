@@ -33,8 +33,8 @@
           class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse position-fixed h-100 pt-3 d-flex flex-column justify-space-between">
           <a class="navbar-brand col-md-3 col-lg-2" href="/"><img class="h- w-100"
               src="{{ asset('storage/uploads/deliverboo.png') }}" alt="Deliveboo"></a>
-          <div class="position-sticky pt-3">
-            <ul class="nav flex-column">
+          <div class="position-sticky pt-3 h-100">
+            <ul class="nav flex-column h-100">
               {{-- Tasto dashboard --}}
               <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
@@ -66,8 +66,8 @@
                   Vedi prodotti
                 </a>
               </li>
-              <li class="nav-item flex-grow-1">
-                <a class="nav-link" href="{{ route('logout') }}"
+              <li class="nav-item flex-grow-1 d-flex position-absolute" style="bottom:0;">
+                <a class="nav-link" style="margin-bottom: 70px;" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
