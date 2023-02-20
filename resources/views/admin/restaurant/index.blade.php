@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="my-3">{{ $restaurant->name}}</h1>
+        <h2 class="my-3" style="text-transform: uppercase;">{{ $restaurant->name}}</h2>
         <a href="{{ route('admin.restaurant.edit', $restaurant) }}" class="btn btn-warning"><i class="fa-solid fa-pen"></i>Modifica il tuo ristorante</a>
     {{-- gestione degli errori di validazione --}}
         @if ($errors->any())

@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Dashboard Layout</h1>
+    <h2 class="mt-3">DASHBOARD</h2>
+
 </div>
 @endsection

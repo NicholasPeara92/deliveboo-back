@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-  <h2>product index</h2>
+  <h2 class="mt-3">I TUOI PRODOTTI</h2>
   <div class="my-3">
     <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Crea un nuovo Prodotto</a>
   </div>
@@ -22,7 +22,7 @@
           <td>{{ $product->type }}</td>
           <td>{{ $product->description }}</td>
           <td>{{ $product->price }}</td>
-          <td>
+          <td width="170">
             <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-success"><i
                 class="fa-solid fa-eye"></i></a>
             <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-warning"><i
