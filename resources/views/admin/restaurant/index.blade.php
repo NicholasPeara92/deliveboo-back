@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         
-        <h2 class="my-3" style="text-transform: uppercase;">{{ $restaurant->name}}</h2>
+        <h3 class="my-3" style="text-transform: uppercase;">{{ $restaurant->name}}</h3>
         @if(session('message'))
         <div class="alert alert-danger my-3">
             <ul class="list-unstyled">
