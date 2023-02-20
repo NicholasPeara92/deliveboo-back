@@ -10,11 +10,12 @@
         @endif
       </div>
     </div>
-    <h1>{{ $product->name }}</h1>
+
+    <h1>Nome prodotto: {{ $product->name }}</h1>
     {{-- imgage --}}
-    <h3>{{ $product->type }}</h3>
-    <h4>{{ $product->price }}</h4>
-    <p>{{ $product->description, $product->is_available }}
+    <h3>Tipologia del prodotto: {{ $product->type }}</h3>
+    <h4>Costo: {{ $product->price }} €</h4>
+    <p>Descrizione: {{ $product->description, $product->is_available }}
     </p>
   </div>
 @endsection
