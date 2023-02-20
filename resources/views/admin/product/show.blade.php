@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="txt-center">
-      <h1>Nome prodotto: {{ $product->name }}</h1>
+      <h3 style="">Nome prodotto: {{ $product->name }}</h3>
         @if ($product->image)
           <img class="w-25" src="{{ asset("storage/$product->image") }}" alt="{{ $product->name }}">
         @endif
