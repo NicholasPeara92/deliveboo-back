@@ -12,11 +12,11 @@
         class="fa-solid fa-pen"></i>Modifica il tuo ristorante</a>
 
     {{-- bottone delete --}}
-    <div class="modal-footer">
+    <div>
       <form action="{{ route('admin.restaurant.destroy', $restaurant->id) }}" method="POST" class="d-inline-block">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-primary">Elimina il tuo ristorante
+        <button type="submit" class="mt-3 btn btn-danger"><i class="fa-solid fa-trash"></i> Elimina il tuo ristorante
         </button>
       </form>
     </div>
