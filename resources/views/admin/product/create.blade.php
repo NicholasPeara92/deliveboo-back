@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <h1 class="my-3">Crea Prodotto</h1>
+    <h3 class="my-3">Crea Prodotto</h3>
     {{-- gestione degli errori di validazione --}}
     @if ($errors->any())
       <div class="alert alert-danger">
