@@ -11,7 +11,8 @@ class RestaurantController extends Controller
     
     public function index()
     {
-        $restaurants = Restaurant::with('category')->get();
+        // $restaurants = Restaurant()->get();
+        $restaurants = Restaurant::all();
 
         return $restaurants;
     }
@@ -20,7 +21,7 @@ class RestaurantController extends Controller
     public function show($slug)
     {
         try {
-            $restaurant = Restaurant::where('slug', $slug)->with('category')->firstOrFail();
+            $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
             return $restaurant;
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return response([
