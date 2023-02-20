@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="container">
     <h3 class="my-3"><strong>NOME DEL RISTORANTE: </strong>{{ $restaurant->name }}</h3>
     <h4><strong>NUMERO DI TELEFONO:</strong> +39 {{ $restaurant->telephone }}</h4>
     <h4><strong>INDIRIZZO:</strong> {{ $restaurant->address }}</h4>
@@ -40,5 +39,4 @@
         </ul>
       </div>
     @endif
-  </div>
 @endsection

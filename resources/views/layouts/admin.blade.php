@@ -31,7 +31,7 @@
       <div class="row h-100">
         <nav id="sidebarMenu"
           class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse position-fixed h-100 pt-3 d-flex flex-column justify-space-between">
-          <a class="navbar-brand col-md-3 col-lg-2" href="/"><img class="h- w-100" style="max-width:250px"
+          <a class="navbar-brand col-md-3 col-lg-2" href="/"><img class="h- w-100"
               src="{{ asset('storage/uploads/deliverboo.png') }}" alt="Deliveboo"></a>
           <div class="position-sticky pt-3 h-100">
             <ul class="nav flex-column h-100">
