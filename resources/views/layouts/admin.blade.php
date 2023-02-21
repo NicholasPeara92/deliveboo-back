@@ -40,7 +40,7 @@
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.dashboard') }}">
                   <i class="fa-solid fa-d fa-lg fa-fw"></i>
-                  Dashboard
+                  <span>Dashboard</span>
                 </a>
               </li>
               {{-- Tasto index Restaurant --}}
@@ -48,22 +48,21 @@
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.index' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.restaurant.index') }}">
                   <i class="fa-solid fa-home fa-lg fa-fw"></i>
-                  Il mio ristorante
-                </a>
+                  <span>Il mio ristorante</span>
               </li>
               {{-- Tasto create Restaurant --}}
               <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.create' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.restaurant.create') }}">
                   <i class="fa-solid fa-utensils fa-lg fa-fw"></i>
-                  Crea ristorante
+                  <span>Crea ristorante</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.product.index' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.product.index') }}">
                   <i class="fa-solid fa-burger fa-lg fa-fw"></i>
-                  Vedi prodotti
+                  <span>Vedi prodotti</span>
                 </a>
               </li>
               <li class="nav-item flex-grow-1 d-flex position-absolute" style="bottom:0;">
