@@ -37,7 +37,17 @@
                     <input type="text" class="form-control" id="telephone" name="telephone"
                         placeholder="Inserisci il numero di telefono" {{ old('telephone') }} required>
                 </div>
-
+                <div class="mb-3">
+                    <div class="mb-1">
+                        Scegli la tipologia di ristorante
+                    </div>              
+                    @foreach ($categories as $category)
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="{{$category->slug}}" name="categories[]" value="{{$category->id}}"{{in_array($category->id, old('categories', [])) ? 'checked' : ""}}>
+                    <label class="form-check-label" for="{{$category->slug}}">{{$category->name}}</label>
+                    </div>
+                    @endforeach
+                </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Immagine</label>
                     <div class="mb-2">
@@ -55,14 +65,6 @@
                     <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}"
                         onchange="loadFile(event)">
                 </div>
-                {{-- <div class="mb-3">
-                    @foreach ($categories as $technology)
-                        <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="{{$technology->slug}}" name="technologies[]" value="{{$technology->id}}"{{in_array($technology->id, old('technologies', [])) ? 'checked' : ""}}>
-                        <label class="form-check-label" for="{{$technology->slug}}">{{$technology->name}}</label>
-                        </div>
-                    @endforeach
-                    </div> --}}
                 <button type="submit" class="btn btn-success mt-5">Conferma</button>
             </form>
             <a href="{{ route('admin.restaurant.index') }}" class="btn btn-primary my-4">Torna alla Lista</a>

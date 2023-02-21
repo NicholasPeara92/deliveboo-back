@@ -12,6 +12,11 @@
     </div>
     <div class="col-12 col-md-6">
       <h3 class="my-3"><strong>NOME DEL RISTORANTE: </strong>{{ $restaurant->name }}</h3>
+      @if(@isset($restaurant->categories))
+      @foreach ($restaurant->categories as $category)
+          <h4>{{$category}}</h4>
+      @endforeach
+      @endif
       <h4><strong>NUMERO DI TELEFONO:</strong> +39 {{ $restaurant->telephone }}</h4>
       <h4><strong>INDIRIZZO:</strong> {{ $restaurant->address }}</h4>
       <h4><strong>PARTITA IVA:</strong> {{ $restaurant->iva }}</h4>

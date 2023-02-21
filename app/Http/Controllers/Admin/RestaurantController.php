@@ -22,7 +22,6 @@ class RestaurantController extends Controller
     {
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
-
         if ($restaurant === null) { //checks if the user has a restaurant or not 
             return redirect()->route('admin.restaurant.create', compact('restaurant'));
         }else{
@@ -36,7 +35,8 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        $categories = Category::all();
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
 
@@ -68,8 +68,10 @@ class RestaurantController extends Controller
         if(isset($data['image'])){
             $new_restaurant->image = Storage::disk('public')->put('uploads', $data['image']);
         }
-
         $new_restaurant->save();
+        if(isset($data['categories'])){
+            $new_restaurant->categories ()->sync($data['categories']);
+        }
 
         return redirect()->route('admin.restaurant.index')->with('message', "Il ristorante $new_restaurant->name è stato creato");
     }
