@@ -39,7 +39,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="cover_image" class="form-label">Immagine</label>
+            <label for="image" class="form-label">Immagine</label>
             <div class="mb-2">
               <script>
                   var loadFile = function(event) {
@@ -52,7 +52,7 @@
               </script>
             </div>
             <img width="100" id="output">
-            <input type="file" class="form-control" id="cover_image" name="cover_image" value="{{old('cover_image')}}" onchange="loadFile(event)">          
+            <input type="file" class="form-control" id="image" name="image" value="{{old('image')}}" onchange="loadFile(event)">          
         </div>
         {{-- <div class="mb-3">
                     @foreach ($categories as $technology)
