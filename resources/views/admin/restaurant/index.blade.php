@@ -16,6 +16,11 @@
         <h4><strong>NUMERO DI TELEFONO:</strong> +39 {{ $restaurant->telephone }}</h4>
         <h4><strong>INDIRIZZO:</strong> {{ $restaurant->address }}</h4>
         <h4><strong>PARTITA IVA:</strong> {{ $restaurant->iva }}</h4>
+        @if(isset($restaurant->categories))
+        @foreach($restaurant->categories as $category)
+          <h4>{{$category->name}}</h4>
+        @endforeach
+        @endif
       </div>
       <div class="text-center pt-3">
         {{-- bottone edit --}}

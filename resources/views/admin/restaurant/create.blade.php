@@ -55,6 +55,18 @@
                     <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}"
                         onchange="loadFile(event)">
                 </div>
+
+                <div class="mb-3">
+                  <div class="mb-1">
+                      Scegli la tipologia di ristorante
+                  </div>
+                  @foreach ($categories as $category)
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="{{$category->slug}}" name="categories[]" value="{{$category->id}}"{{in_array($category->id, old('categories', [])) ? 'checked' : ""}}>
+                      <label class="form-check-label" for="{{$category->slug}}">{{$category->name}}</label>
+                    </div>
+                  @endforeach
+              </div>
                 {{-- <div class="mb-3">
                     @foreach ($categories as $technology)
                         <div class="form-check form-check-inline">

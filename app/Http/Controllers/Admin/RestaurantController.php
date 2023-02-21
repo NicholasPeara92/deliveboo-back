@@ -71,6 +71,10 @@ class RestaurantController extends Controller
 
         $new_restaurant->save();
 
+        if(isset($data['categories'])){
+            $new_restaurant->categories()->sync($data['categories']);
+        }
+
         return redirect()->route('admin.restaurant.index')->with('message', "Il ristorante $new_restaurant->name è stato creato");
     }
 
