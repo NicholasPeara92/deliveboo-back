@@ -25,13 +25,32 @@
       class="fa-solid fa-pen"></i>Modifica il tuo ristorante</a>
 
   {{-- bottone delete --}}
-  <div>
-    <form action="{{ route('admin.restaurant.destroy', $restaurant->id) }}" method="POST" class="d-inline-block">
-      @csrf
-      @method('DELETE')
-      <button type="submit" class="mt-3 btn btn-danger"><i class="fa-solid fa-trash"></i> Elimina il tuo ristorante
-      </button>
-    </form>
+
+  <button type="button" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#modal-{{ $restaurant->id }}">
+    <i class="fa-solid fa-trash"></i> Elimina il tuo ristorante
+  </button>
+  </td>
+  </tr>
+  <div class="modal fade" id="modal-{{ $restaurant->id }}" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Conferma</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Sei sicuro di eliminare il tuo ristorante "{{ $restaurant->name }}"?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <form action="{{ route('admin.restaurant.destroy', $restaurant) }}" method="POST" class="d-inline-block">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-primary">Si</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 
   {{-- gestione degli errori di validazione --}}
