@@ -24,7 +24,7 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::where('user_id', $user)->first();
 
         if ($restaurant === null) { //checks if the user has a restaurant or not 
-            return redirect()->route('admin.restaurant.create');
+            return redirect()->route('admin.restaurant.create', compact('restaurant'));
         }else{
             return view('admin.restaurant.index', compact('restaurant'));
         }
@@ -46,7 +46,7 @@ class RestaurantController extends Controller
             $restaurantForm = new Restaurant();
             $categories = Category::all();
             
-            return view('admin.restaurant.create', compact(['restaurantForm', 'categories']));
+            return view('admin.restaurant.create', compact('restaurantForm', 'categories', 'restaurant'));
         }
     }
 
@@ -93,8 +93,15 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        $categories = Category::all();
-        return view('admin.restaurant.edit', compact('restaurant', 'categories'));
+        $user = Auth::user()->id;
+
+        if($restaurant->id == $user->id){
+            $categories = Category::all();
+            return view('admin.restaurant.edit', compact('restaurant', 'categories'));
+        }else{
+            $my_restaurant = Restaurant::find($user->id);
+            return view('admin.restaurant.show', compact('my_restaurant'))->with('message', 'Non puoi editare la pagina del ristorante di un altro utente');
+        }
     }
 
     /**

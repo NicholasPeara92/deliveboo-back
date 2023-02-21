@@ -29,7 +29,7 @@ class ProductController extends Controller
         }else{
             
             $products = Product::where('restaurant_id', $restaurant->id)->get();
-            return view('admin.product.index', compact('products'));
+            return view('admin.product.index', compact('products', 'restaurant'));
         }
         // Seleziono solo i prodotti con la foreign key di quel ristorante
         

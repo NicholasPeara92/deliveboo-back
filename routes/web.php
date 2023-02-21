@@ -4,6 +4,9 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RestaurantController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +25,9 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
-        return view('admin.dashboard');
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+        return view('admin.dashboard', compact('restaurant'));
     })->name('dashboard');
 
     Route::resource('restaurant', RestaurantController::class)->parameters(['restaurants' => 'restaurant:slug']);
