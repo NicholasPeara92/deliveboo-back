@@ -50,10 +50,7 @@ class ProductController extends Controller
         if ($restaurant === null) { //checks if the user has a restaurant or not 
             return redirect()->route('admin.restaurant.create')->with(['message'=>'Non puoi creare un prodotto senza prima avere un ristorante']);
         }else{
-            $restaurantForm = new Restaurant();
-            $categories = Category::all();
-            
-            return view('admin.product.create');
+            return view('admin.product.create', compact('restaurant'));
         }
     }
 
@@ -90,7 +87,10 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('admin.product.show', compact('product'));
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+
+        return view('admin.product.show', compact('product', 'restaurant'));
     }
 
     /**
@@ -101,7 +101,14 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.product.edit', compact('product'));
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+        
+        if($restaurant->user_id === $user && $restaurant->id === $product->restaurant_id){
+            return view('admin.restaurant.edit', compact('restaurant'));
+        }else{
+            return redirect()->route('admin.restaurant.index');
+        }
     }
 
     /**
