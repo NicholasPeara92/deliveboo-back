@@ -9,9 +9,9 @@
     </div>
 
     {{-- imgage --}}
-    <h4 class="py-3"><strong>Tipologia del prodotto:</strong> {{ $product->type }}</h4>
-    <h5 class="py-3"><strong>Costo:</strong> {{ $product->price }} €</h5>
-    <p class="py-3"><strong>Descrizione:</strong> {{ $product->description, $product->is_available }}
+    <h4 class="pt-3"><strong>Tipologia del prodotto:</strong> {{ $product->type }}</h4>
+    <h5 class=""><strong>Costo:</strong> {{ $product->price }} €</h5>
+    <p class=""><strong>Descrizione:</strong> {{ $product->description, $product->is_available }}
     </p>
     <a href="{{ route('admin.product.index', $product->id) }}" class="my-3 btn btn-success">Menù</i></a>
 @endsection
