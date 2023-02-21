@@ -48,7 +48,7 @@
                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.index' ? 'bg-secondary' : '' }}"
                   href="{{ route('admin.restaurant.index') }}">
                   <i class="fa-solid fa-home fa-lg fa-fw"></i>
-                  <span>Il mio ristorante</span>
+                  <span>Il mio ristorante</span></a>
               </li>
               {{-- Tasto create Restaurant --}}
               <li class="nav-item">

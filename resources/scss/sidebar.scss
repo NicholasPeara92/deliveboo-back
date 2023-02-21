@@ -1,7 +1,25 @@
 #sidebarMenu {
     max-width: 300px;
-    min-width: 200px;
+    min-width: 100px;
     img {
         max-width: 200px;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    span {
+        display: none;
+    }
+
+    #sidebarMenu {
+        display: block;
+        width: 50px;
+        img {
+            width: 50px;
+        }
+    }
+
+    main {
+        margin-left: 100px;
     }
 }
