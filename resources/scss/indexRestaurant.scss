@@ -1,5 +1,14 @@
 .ms-container {
     height: 100vh;
+    img {
+        border-radius: 50%;
+    }
+    .ms-card {
+        background-color: #8df9e1;
+        border-radius: 20px;
+        color: white;
+        padding: 30px;
+    }
 }
 
 .ms-btn {

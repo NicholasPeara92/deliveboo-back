@@ -1,17 +1,17 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="row">
+  <div class="row p-4">
     <div class="col-12 col-md-6">
       @if ($restaurant->image)
         <div>
-          <img style="max-width: 200px" class="w-100 py-3" src="{{ asset("storage/$restaurant->image") }}"
+          <img style="max-width: 400px" class="w-100 py-3" src="{{ asset("storage/$restaurant->image") }}"
             alt="{{ $restaurant->name }}">
         </div>
       @endif
     </div>
-    <div class="col-12 col-md-6">
-      <h3 class="my-3"><strong>NOME DEL RISTORANTE: </strong>{{ $restaurant->name }}</h3>
+    <div class="card ms-card col-12 col-md-6">
+      <h3 class="my-3"><strong>IL TUO RISTORANTE: </strong>{{ $restaurant->name }}</h3>
       <h4><strong>NUMERO DI TELEFONO:</strong> +39 {{ $restaurant->telephone }}</h4>
       <h4><strong>INDIRIZZO:</strong> {{ $restaurant->address }}</h4>
       <h4><strong>PARTITA IVA:</strong> {{ $restaurant->iva }}</h4>
