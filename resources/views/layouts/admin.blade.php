@@ -83,7 +83,7 @@
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10">
-          <div class="ms-container">
+          <div class="ms-container ps-3">
             @yield('content')
 
           </div>

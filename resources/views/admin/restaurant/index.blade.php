@@ -21,12 +21,12 @@
 
 
   {{-- bottone edit --}}
-  <a href="{{ route('admin.restaurant.edit', $restaurant) }}" class="mt-3 me-1 btn btn-warning"><i
-      class="fa-solid fa-pen"></i>Modifica il tuo ristorante</a>
+  <a href="{{ route('admin.restaurant.edit', $restaurant) }}" class="mt-3 me-1 btn ms-btn"><i class="fa-solid fa-pen"></i>
+    Modifica il tuo ristorante</a>
 
   {{-- bottone delete --}}
 
-  <button type="button" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#modal-{{ $restaurant->id }}">
+  <button type="button" class="btn ms-btn mt-3" data-bs-toggle="modal" data-bs-target="#modal-{{ $restaurant->id }}">
     <i class="fa-solid fa-trash"></i> Elimina il tuo ristorante
   </button>
   </td>

@@ -1,0 +1,16 @@
+.ms-container {
+    height: 100vh;
+}
+
+.ms-btn {
+    color: #1eeabd;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+@include media-breakpoint-down(md) {
+    .ms-container {
+        text-align: center;
+        padding-left: 90px;
+    }
+}
