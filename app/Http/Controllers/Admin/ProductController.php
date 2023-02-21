@@ -33,7 +33,6 @@ class ProductController extends Controller
             return view('admin.product.index', compact('products', 'restaurant'));
         }
         // Seleziono solo i prodotti con la foreign key di quel ristorante
-        
     }
 
     /**
