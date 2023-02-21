@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -41,8 +42,19 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {   
-        return view('admin.product.create');
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+
+        if ($restaurant === null) { //checks if the user has a restaurant or not 
+            return redirect()->route('admin.restaurant.create')->with(['message'=>'Non puoi creare un prodotto senza prima avere un ristorante']);
+        }else{
+            $restaurantForm = new Restaurant();
+            $categories = Category::all();
+            
+            return view('admin.product.create');
+        }
     }
 
     /**

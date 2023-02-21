@@ -95,12 +95,11 @@ class RestaurantController extends Controller
     {
         $user = Auth::user()->id;
 
-        if($restaurant->id == $user->id){
+        if($restaurant->user_id == $user){
             $categories = Category::all();
             return view('admin.restaurant.edit', compact('restaurant', 'categories'));
         }else{
-            $my_restaurant = Restaurant::find($user->id);
-            return view('admin.restaurant.show', compact('my_restaurant'))->with('message', 'Non puoi editare la pagina del ristorante di un altro utente');
+            return redirect()->route('admin.restaurant.index');
         }
     }
 
