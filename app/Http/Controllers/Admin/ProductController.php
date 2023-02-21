@@ -89,7 +89,11 @@ class ProductController extends Controller
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
 
-        return view('admin.product.show', compact('product', 'restaurant'));
+        if($restaurant->user_id === $user && $restaurant->id === $product->restaurant_id){
+            return view('admin.product.edit', compact('product','restaurant'));
+        }else{
+            return redirect()->route('admin.product.index');
+        }
     }
 
     /**
@@ -104,9 +108,9 @@ class ProductController extends Controller
         $restaurant = Restaurant::where('user_id', $user)->first();
         
         if($restaurant->user_id === $user && $restaurant->id === $product->restaurant_id){
-            return view('admin.restaurant.edit', compact('restaurant'));
+            return view('admin.product.edit', compact('product','restaurant'));
         }else{
-            return redirect()->route('admin.restaurant.index');
+            return redirect()->route('admin.product.index');
         }
     }
 
