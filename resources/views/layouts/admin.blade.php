@@ -30,7 +30,7 @@
     <div class="container-fluid vh-100">
       <div class="row h-100">
         <nav id="sidebarMenu"
-          class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse position-fixed h-100 pt-3 d-flex flex-column justify-space-between">
+          class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse position-fixed h-100 pt-3">
           <a class="navbar-brand col-md-3 col-lg-2" href="/"><img class="w-100"
               src="{{ asset('storage/uploads/deliverboo.png') }}" alt="Deliveboo"></a>
           <div class="position-sticky pt-3 h-100">
@@ -70,7 +70,7 @@
                 <a class="nav-link" style="margin-bottom: 100px;" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
-                          {{ __('Logout') }}
+                  {{ __('Logout') }}
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
