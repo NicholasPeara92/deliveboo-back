@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+    @if ($restaurant->image)
+      <img class="w-100 pb-3" src="{{ asset("storage/$restaurant->image") }}" alt="{{ $restaurant->name }}">
+    @endif
     <h3 class="my-3"><strong>NOME DEL RISTORANTE: </strong>{{ $restaurant->name }}</h3>
     <h4><strong>NUMERO DI TELEFONO:</strong> +39 {{ $restaurant->telephone }}</h4>
     <h4><strong>INDIRIZZO:</strong> {{ $restaurant->address }}</h4>
