@@ -20,19 +20,19 @@
         @csrf
         @method('PUT')
         <div class="mb-3">
-          <label for="name" class="form-label">Nome Prodotto*</label>
+          <label for="name" class="form-label">Nome Prodotto *</label>
           <input type="text" class="form-control" id="name" name="name" value="{{ $product->name }}" required>
         </div>
         <div class="mb-3">
-          <label for="type" class="form-label">Tipologia*</label>
+          <label for="type" class="form-label">Tipologia *</label>
           <input type="text" class="form-control" id="type" name="type" value="{{ $product->type }}" required>
         </div>
         <div class="mb-3">
-          <label for="description" class="form-label d-block">Descrizione*</label>
+          <label for="description" class="form-label d-block">Descrizione *</label>
           <textarea name="description" id="description" rows="5" class="w-100" required>{{ $product->description }}</textarea>
         </div>
         <div class="mb-3">
-          <label for="price" class="form-label">Inserisci il prezzo*</label>
+          <label for="price" class="form-label">Inserisci il prezzo *</label>
           <input type="number" class="form-control" id="price" name="price" value="{{ $product->price }}"
             step="0.01" {{ old('price') }} min="0.10" required>
         </div>
