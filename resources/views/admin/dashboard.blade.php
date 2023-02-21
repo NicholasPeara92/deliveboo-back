@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h3 class="my-3"><strong>DASHBOARD</strong></h3>
+    <div class="pt-2">
+        <h1 class="my-3"><strong>DASHBOARD</strong></h1>
+        <h3>Benvenuto {{ $restaurant->name }}</h3>
+    </div>
 @endsection

@@ -5,32 +5,39 @@
     <div class="col-12 col-md-6">
       @if ($restaurant->image)
         <div>
-          <img style="max-width: 400px" class="w-100 py-3" src="{{ asset("storage/$restaurant->image") }}"
+          <img style="max-width: 400px" class="w-100" src="{{ asset("storage/$restaurant->image") }}"
             alt="{{ $restaurant->name }}">
         </div>
       @endif
     </div>
-    <div class="card ms-card col-12 col-md-6">
-      <h3 class="my-3"><strong>IL TUO RISTORANTE: </strong>{{ $restaurant->name }}</h3>
-      <h4><strong>NUMERO DI TELEFONO:</strong> +39 {{ $restaurant->telephone }}</h4>
-      <h4><strong>INDIRIZZO:</strong> {{ $restaurant->address }}</h4>
-      <h4><strong>PARTITA IVA:</strong> {{ $restaurant->iva }}</h4>
+    <div class="col-12 col-md-6">
+      <div class="card ms-card">
+        <h3 class="my-3"><strong>IL TUO RISTORANTE: </strong>{{ $restaurant->name }}</h3>
+        <h4><strong>NUMERO DI TELEFONO:</strong> +39 {{ $restaurant->telephone }}</h4>
+        <h4><strong>INDIRIZZO:</strong> {{ $restaurant->address }}</h4>
+        <h4><strong>PARTITA IVA:</strong> {{ $restaurant->iva }}</h4>
+      </div>
+      <div class="text-center pt-3">
+        {{-- bottone edit --}}
+        <a href="{{ route('admin.restaurant.edit', $restaurant) }}" class="mt-3 me-4 btn ms-btn"><i
+            class="fa-solid fa-pen"></i>
+          Modifica il tuo ristorante</a>
+
+        {{-- bottone delete --}}
+
+        <button type="button" class="btn ms-btn mt-3" data-bs-toggle="modal"
+          data-bs-target="#modal-{{ $restaurant->id }}">
+          <i class="fa-solid fa-trash"></i> Elimina il tuo ristorante
+        </button>
+
+      </div>
+
     </div>
   </div>
 
 
 
-  {{-- bottone edit --}}
-  <a href="{{ route('admin.restaurant.edit', $restaurant) }}" class="mt-3 me-1 btn ms-btn"><i class="fa-solid fa-pen"></i>
-    Modifica il tuo ristorante</a>
 
-  {{-- bottone delete --}}
-
-  <button type="button" class="btn ms-btn mt-3" data-bs-toggle="modal" data-bs-target="#modal-{{ $restaurant->id }}">
-    <i class="fa-solid fa-trash"></i> Elimina il tuo ristorante
-  </button>
-  </td>
-  </tr>
   <div class="modal fade" id="modal-{{ $restaurant->id }}" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
