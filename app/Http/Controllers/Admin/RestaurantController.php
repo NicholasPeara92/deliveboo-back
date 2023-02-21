@@ -24,7 +24,7 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::where('user_id', $user)->first();
 
         if ($restaurant === null) { //checks if the user has a restaurant or not 
-            return redirect()->route('admin.restaurant.create');
+            return redirect()->route('admin.restaurant.create', compact('restaurant'));
         }else{
             return view('admin.restaurant.index', compact('restaurant'));
         }
@@ -46,7 +46,7 @@ class RestaurantController extends Controller
             $restaurantForm = new Restaurant();
             $categories = Category::all();
             
-            return view('admin.restaurant.create', compact(['restaurantForm', 'categories']));
+            return view('admin.restaurant.create', compact('restaurantForm', 'categories', 'restaurant'));
         }
     }
 

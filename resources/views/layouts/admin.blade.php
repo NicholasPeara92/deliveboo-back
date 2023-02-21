@@ -35,36 +35,39 @@
               src="{{ asset('storage/uploads/deliverboo.png') }}" alt="Deliveboo"></a>
           <div class="position-sticky pt-3 h-100">
             <ul class="nav flex-column h-100">
-              {{-- Tasto dashboard --}}
-              <li class="nav-item">
-                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
-                  href="{{ route('admin.dashboard') }}">
-                  <i class="fa-solid fa-d fa-lg fa-fw"></i>
-                  <span>Dashboard</span>
-                </a>
-              </li>
-              {{-- Tasto index Restaurant --}}
-              <li class="nav-item">
-                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.index' ? 'bg-secondary' : '' }}"
-                  href="{{ route('admin.restaurant.index') }}">
-                  <i class="fa-solid fa-home fa-lg fa-fw"></i>
-                  <span>Il mio ristorante</span></a>
-              </li>
+              @if($restaurant)
+                {{-- Tasto dashboard --}}
+                <li class="nav-item">
+                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+                    href="{{ route('admin.dashboard') }}">
+                    <i class="fa-solid fa-d fa-lg fa-fw"></i>
+                    <span>Dashboard</span>
+                  </a>
+                </li>
+                {{-- Tasto index Restaurant --}}
+                <li class="nav-item">
+                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.index' ? 'bg-secondary' : '' }}"
+                    href="{{ route('admin.restaurant.index') }}">
+                    <i class="fa-solid fa-home fa-lg fa-fw"></i>
+                    <span>Il mio ristorante</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.product.index' ? 'bg-secondary' : '' }}"
+                    href="{{ route('admin.product.index') }}">
+                    <i class="fa-solid fa-burger fa-lg fa-fw"></i>
+                    <span>Vedi prodotti</span>
+                  </a>
+                </li>
+              @else
               {{-- Tasto create Restaurant --}}
-              <li class="nav-item">
-                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.create' ? 'bg-secondary' : '' }}"
-                  href="{{ route('admin.restaurant.create') }}">
-                  <i class="fa-solid fa-utensils fa-lg fa-fw"></i>
-                  <span>Crea ristorante</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.product.index' ? 'bg-secondary' : '' }}"
-                  href="{{ route('admin.product.index') }}">
-                  <i class="fa-solid fa-burger fa-lg fa-fw"></i>
-                  <span>Vedi prodotti</span>
-                </a>
-              </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.create' ? 'bg-secondary' : '' }}"
+                    href="{{ route('admin.restaurant.create') }}">
+                    <i class="fa-solid fa-utensils fa-lg fa-fw"></i>
+                    <span>Crea ristorante</span>
+                  </a>
+                </li>
+              @endif
               <li class="nav-item flex-grow-1 d-flex position-absolute" style="bottom:0;">
                 <a class="nav-link" style="margin-bottom: 100px;" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
