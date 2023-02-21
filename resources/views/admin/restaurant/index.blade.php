@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="row p-4">
-    <div class="col-12 col-md-6">
+  <div class="row justify-content-center align-items-center p-4">
+    <div class="col-12 col-md-4">
       @if ($restaurant->image)
         <div>
           <img style="max-width: 400px" class="w-100" src="{{ asset("storage/$restaurant->image") }}"
@@ -10,7 +10,7 @@
         </div>
       @endif
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-7">
       <div class="card ms-card">
         <h3 class="my-3"><strong>IL TUO RISTORANTE: </strong>{{ $restaurant->name }}</h3>
         <h4><strong>NUMERO DI TELEFONO:</strong> +39 {{ $restaurant->telephone }}</h4>
