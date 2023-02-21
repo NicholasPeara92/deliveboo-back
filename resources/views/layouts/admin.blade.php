@@ -29,12 +29,12 @@
 
     <div class="container-fluid vh-100">
       <div class="row h-100">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark position-fixed h-100 pt-3">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark position-fixed h-100 pt-3">
           <a class="navbar-brand col-md-3 col-lg-2" href="/"><img class="w-100"
               src="{{ asset('storage/uploads/deliverboo.png') }}" alt="Deliveboo"></a>
           <div class="position-sticky pt-3 h-100">
             <ul class="nav flex-column h-100">
-              @if($restaurant)
+              @if ($restaurant)
                 {{-- Tasto dashboard --}}
                 <li class="nav-item">
                   <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
@@ -58,9 +58,9 @@
                   </a>
                 </li>
               @else
-              {{-- Tasto create Restaurant --}}
+                {{-- Tasto create Restaurant --}}
                 <li class="nav-item">
-                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.create' ? 'bg-secondary' : '' }}"
+                  <a class="nav-link {{ Route::currentRouteName() == 'admin.restaurant.create' ? 'bg-secondary' : '' }}"
                     href="{{ route('admin.restaurant.create') }}">
                     <i class="fa-solid fa-utensils fa-lg fa-fw"></i>
                     <span>Crea ristorante</span>
@@ -68,7 +68,7 @@
                 </li>
               @endif
               <li class="nav-item flex-grow-1 d-flex position-absolute" style="bottom:0;">
-                <a class="nav-link logout" style="margin-bottom: 100px;" href="{{ route('logout') }}"
+                <a class="nav-link logout" style="margin-bottom: 80px; color:#1eeabd;" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
                   <i class="fa-solid fa-right-from-bracket fa-lg fa-fw"></i>
