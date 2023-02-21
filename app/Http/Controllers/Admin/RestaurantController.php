@@ -66,7 +66,7 @@ class RestaurantController extends Controller
         $new_restaurant->user_id = $user;
 
         if(isset($data['image'])){
-            $new_restaurant->cover_image = Storage::disk('public')->put('uploads', $data['image']);
+            $new_restaurant->image = Storage::disk('public')->put('uploads', $data['image']);
         }
 
         $new_restaurant->save();
