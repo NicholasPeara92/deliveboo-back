@@ -1,6 +1,5 @@
 #sidebarMenu {
     max-width: 300px;
-    min-width: 100px;
     img {
         max-width: 200px;
     }
@@ -12,14 +11,20 @@
     }
 
     #sidebarMenu {
-        display: block;
-        width: 50px;
+        max-width: 100px;
         img {
             width: 50px;
         }
+        li a {
+            text-align: center;
+            font-size: 20px;
+        }
+        .logout {
+            width: 76px;
+        }
     }
-
-    main {
-        margin-left: 100px;
+    .ms-container {
+        text-align: center;
+        padding-left: 90px;
     }
 }

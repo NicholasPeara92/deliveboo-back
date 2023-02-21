@@ -29,8 +29,7 @@
 
     <div class="container-fluid vh-100">
       <div class="row h-100">
-        <nav id="sidebarMenu"
-          class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse position-fixed h-100 pt-3">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark position-fixed h-100 pt-3">
           <a class="navbar-brand col-md-3 col-lg-2" href="/"><img class="w-100"
               src="{{ asset('storage/uploads/deliverboo.png') }}" alt="Deliveboo"></a>
           <div class="position-sticky pt-3 h-100">
@@ -66,10 +65,11 @@
                 </a>
               </li>
               <li class="nav-item flex-grow-1 d-flex position-absolute" style="bottom:0;">
-                <a class="nav-link" style="margin-bottom: 100px;" href="{{ route('logout') }}"
+                <a class="nav-link logout" style="margin-bottom: 100px;" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
-                  {{ __('Logout') }}
+                  <i class="fa-solid fa-right-from-bracket fa-lg fa-fw"></i>
+                  <span>Log out</span>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
@@ -79,8 +79,11 @@
           </div>
         </nav>
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-5">
-          @yield('content')
+        <main class="col-md-9 ms-sm-auto col-lg-10">
+          <div class="ms-container">
+            @yield('content')
+
+          </div>
         </main>
       </div>
     </div>
