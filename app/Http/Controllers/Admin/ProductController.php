@@ -78,7 +78,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('admin.product.show', compact('product'));
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+        return view('admin.product.show', compact('product','restaurant'));
     }
 
     /**
