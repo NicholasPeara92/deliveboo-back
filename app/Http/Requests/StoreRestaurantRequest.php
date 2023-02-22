@@ -29,7 +29,7 @@ class StoreRestaurantRequest extends FormRequest
             'image' => 'nullable|image|max:2048',
             'telephone' => 'required|unique:restaurants|string|max:10', 
             'iva' => 'required|unique:restaurants|string|max:15',
-            'categories' => 'nullable|exists:categories, id'
+            'categories' => 'required|exists:restaurants, id'
         ];
     }
 }
