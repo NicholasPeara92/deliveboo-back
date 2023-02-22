@@ -52,7 +52,7 @@
                             };
                         </script>
                     </div>
-                    <img width="200" id="output"
+                    <img width="200" id="output" class="mb-3"
                         @if ($restaurant->image) src="{{ asset("storage/$restaurant->image") }}" @endif>
                     <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}"
                         onchange="loadFile(event)">
