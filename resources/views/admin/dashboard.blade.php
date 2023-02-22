@@ -22,7 +22,12 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($products as $product)  
+              @foreach ($products as $product) 
+              @if(count($product->orders) !== 0)
+                <tr>
+                    <th>{{$product->name}}</th>
+                </tr>
+              @endif
               @foreach ($product->orders as $order)
                 <tr>
                   <td>{{ $order->name }}</td>

@@ -15,12 +15,13 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($products as $product)  
-      <tr>
-        <th>{{$product->name}}</th>
-      </tr>
+      @foreach ($products as $product) 
+      @if(count($product->orders) !== 0)
+        <tr>
+            <th>{{$product->name}}</th>
+        </tr>
+      @endif
       @foreach ($product->orders as $order)
-      @if($order !== null)
         <tr>
           <td>{{ $order->name }}</td>
           <td>{{ $order->surname }}</td>
@@ -41,11 +42,6 @@
             </form>
           </td> --}}
         </tr>
-        @else
-            <tr>
-                <td>Nessun acquisto per questo prodotto</td>
-            </tr>
-        @endif
         @endforeach
       @endforeach
     </tbody>
