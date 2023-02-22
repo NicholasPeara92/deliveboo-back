@@ -128,10 +128,12 @@ class RestaurantController extends Controller
 
         $restaurant->update($data);
 
-        $categories = isset($data['categories']) ? $data['categories'] : [];
-        $restaurant->categories()->sync($categories);
+        if(isset($data['categories'])){
+            $restaurant->categories()->sync($data['categories']);
+        }else{
+            $restaurant->categories()->sync([]);
+        }
         
-
         return redirect()->route('admin.restaurant.index')->with('message', "Il ristorante $old_name è stato aggiornato");
     }
 
