@@ -10,6 +10,7 @@ class Restaurant extends Model
     use HasFactory;
 
     protected $guarded = ['slug'];
+    protected $appends = ['image_url'];
 
     protected function getImageUrlAttribute()
     {
