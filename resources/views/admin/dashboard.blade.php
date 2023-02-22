@@ -25,8 +25,7 @@
               @foreach ($products as $product) 
               @if(count($product->orders) !== 0)
                 <tr>
-                    <th>{{$product->name}}</th>
-                </tr>
+                    <td colspan="7" class="text-center text-blue"><strong style="text-transform: uppercase; color: ">{{$product->name}}</strong></td></tr>
               @endif
               @foreach ($product->orders as $order)
                 <tr>
