@@ -31,7 +31,7 @@ class UpdateRestaurantRequest extends FormRequest
             'no_image' => 'nullable',
             'telephone' => ['required', Rule::unique('restaurants')->ignore($this->restaurant),'string','max:10'],
             'iva' => ['required', Rule::unique('restaurants')->ignore($this->restaurant),'string','max:15'],
-            'categories' => 'required|unique:restaurants,id',
+            'categories' => 'required|exists:categories,id',
         ];
     }
 }
