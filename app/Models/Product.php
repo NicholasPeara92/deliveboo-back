@@ -10,6 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = ['slug', 'is_available'];
+    protected $appends = ['image_url'];
 
     protected function getImageUrlAttribute()
     {
