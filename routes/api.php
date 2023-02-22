@@ -19,3 +19,5 @@ Route::get("restaurant/{slug}", [RestaurantController::class, 'show']);
 
 Route::get('products', [ProductController::class, 'index']);
 Route::get("product/{slug}", [ProductController::class, 'show']); 
+
+// Route::get('user', [RegisteredUserController::class, 'store']);
