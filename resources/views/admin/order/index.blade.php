@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-  <h3 class="my-3"><strong>I TUOI ORDINI</strong></h3>
+  <h3 class="my-3 text-center text-dark my-3"><strong>I TUOI ORDINI</strong></h3>
   <table class="table">
     <thead>
       <tr class="bg-dark">
