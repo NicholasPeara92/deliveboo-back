@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="row">
-    <div class="col-12 col-md-6">
+  <div class="row justify-content-center align-items-center p-4">
+    <div class="col-12 col-md-4">
       @if ($restaurant->image)
         <div>
-          <img style="max-width: 200px" class="w-100 py-3" src="{{ asset("storage/$restaurant->image") }}"
+          <img style="max-width: 400px" class="w-100" src="{{ asset("storage/$restaurant->image") }}"
             alt="{{ $restaurant->name }}">
         </div>
       @endif
@@ -16,10 +16,10 @@
         <h4><strong>NUMERO DI TELEFONO:</strong> +39 {{ $restaurant->telephone }}</h4>
         <h4><strong>INDIRIZZO:</strong> {{ $restaurant->address }}</h4>
         <h4><strong>PARTITA IVA:</strong> {{ $restaurant->iva }}</h4>
-        @if(isset($restaurant->categories))
-        @foreach($restaurant->categories as $category)
-          <h4>{{$category->name}}</h4>
-        @endforeach
+        @if (isset($restaurant->categories))
+          @foreach ($restaurant->categories as $category)
+            <h4>{{ $category->name }}</h4>
+          @endforeach
         @endif
       </div>
       <div class="text-center pt-3">
@@ -42,17 +42,7 @@
 
 
 
-  {{-- bottone edit --}}
-  <a href="{{ route('admin.restaurant.edit', $restaurant) }}" class="mt-3 me-1 btn btn-warning"><i
-      class="fa-solid fa-pen"></i>Modifica il tuo ristorante</a>
 
-  {{-- bottone delete --}}
-
-  <button type="button" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#modal-{{ $restaurant->id }}">
-    <i class="fa-solid fa-trash"></i> Elimina il tuo ristorante
-  </button>
-  </td>
-  </tr>
   <div class="modal fade" id="modal-{{ $restaurant->id }}" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
