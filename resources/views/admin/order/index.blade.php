@@ -5,12 +5,12 @@
   <table class="table">
     <thead>
       <tr class="bg-dark">
-        <th scope="col">Nome Acquirente</th>
-        <th scope="col">Cognome Acquirente</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Cognome</th>
         <th scope="col">Indirizzo</th>
         <th scope="col">Telefono</th>
         <th scope="col">Email</th>
-        <th scope="col">Totale Ordine</th>
+        <th scope="col">Totale</th>
         <th scope="col">Data</th>
         <th scope="col">Azioni</th>
       </tr>
