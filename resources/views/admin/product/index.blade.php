@@ -21,7 +21,7 @@
           <td>{{ $product->name }}</td>
           <td>{{ $product->type }}</td>
           <td>{{ $product->description }}</td>
-          <td>{{ $product->price }}</td>
+          <td>{{ $product->price }} €</td>
           <td width="170">
             <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-success"><i
                 class="fa-solid fa-eye"></i></a>
