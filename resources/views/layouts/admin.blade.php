@@ -60,7 +60,7 @@
                 <li class="nav-item">
                   <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.order.index' ? 'bg-secondary' : '' }}"
                     href="{{ route('admin.order.index') }}">
-                    <i class="fa-solid fa-burger fa-lg fa-fw"></i>
+                    <i class="fa-solid fa-folder fa-lg fa-fw"></i></i>
                     <span>Vedi ordini</span>
                   </a>
                 </li>
