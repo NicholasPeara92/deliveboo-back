@@ -76,12 +76,11 @@ class OrderController extends Controller
             }  
 
             if($userOrder){
-                return redirect()->route('admin.order.show', compact('restaurant', 'order'));
+                return view('admin.order.show', compact('order', 'restaurant'));
             }else{
                 return redirect()->route('admin.order.index');
             }
         }
-
     }
 
     /**
