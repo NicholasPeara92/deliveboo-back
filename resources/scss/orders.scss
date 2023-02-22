@@ -1,7 +1,15 @@
 tr {
     td {
         strong {
-            color: $primary-color;
+            color: white;
         }
     }
+}
+
+.ms-bg-primary {
+    background-color: $primary-color;
+}
+
+th {
+    color: white;
 }

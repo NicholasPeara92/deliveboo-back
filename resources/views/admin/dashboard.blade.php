@@ -11,7 +11,7 @@
         <h4 class="my-4 text-center">Riepilogo Ordini</h4>
         <table class="table">
             <thead>
-              <tr>
+              <tr class="bg-dark">
                 <th scope="col">Nome Acquirente</th>
                 <th scope="col">Cognome Acquirente</th>
                 <th scope="col">Indirizzo</th>
@@ -24,8 +24,8 @@
             <tbody>
               @foreach ($products as $product) 
               @if(count($product->orders) !== 0)
-                <tr>
-                    <td colspan="7" class="text-center text-blue"><strong style="text-transform: uppercase; color: ">{{$product->name}}</strong></td></tr>
+                <tr class="ms-bg-primary">
+                    <td colspan="7" class="text-center"><strong style="text-transform: uppercase;">{{$product->name}}</strong></td></tr>
               @endif
               @foreach ($product->orders as $order)
                 <tr>
