@@ -1,15 +1,16 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="container-fluid vh-100">
     <div>
-        <h1 class="my-3"><strong>DASHBOARD</strong></h1>
+        <h1><strong>DASHBOARD</strong></h1>
         @if ($restaurant)
             <h3>Benvenuto {{ $restaurant->name }}</h3>
         @endif
     </div>
     <div>
         <h4 class="my-4 text-center">Riepilogo Ordini</h4>
-        <table class="table">
+        <table class="w-100">
             <thead>
               <tr class="bg-dark">
                 <th scope="col">Nome</th>
@@ -25,32 +26,23 @@
               @foreach ($products as $product) 
               @if(count($product->orders) !== 0)
                 <tr class="ms-bg-primary">
-                    <td colspan="7" class="text-center"><strong style="text-transform: uppercase;">{{$product->name}}</strong></td></tr>
+                    <td colspan="7" class="text-center py-2"><strong style="text-transform: uppercase;">{{$product->name}}</strong></td></tr>
               @endif
               @foreach ($product->orders as $order)
                 <tr>
-                  <td>{{ $order->name }}</td>
+                  <td class="py-2">{{ $order->name }}</td>
                   <td>{{ $order->surname }}</td>
                   <td>{{ $order->address }}</td>
                   <td>{{ $order->telephone }}</td>
                   <td>{{ $order->email }}</td>
                   <td>{{ $order->total }} €</td>
                   <td>{{ $order->create_order }}</td>
-                  {{-- <td width="170">
-                    <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-success"><i
-                        class="fa-solid fa-eye"></i></a>
-                    <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-warning"><i
-                        class="fa-solid fa-pencil"></i></a>
-                    <form action="{{ route('admin.product.destroy', $product) }}" method="POST" class="d-inline-block">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                    </form>
-                  </td> --}}
                 </tr>
                 @endforeach
               @endforeach
             </tbody>
           </table>
     </div>
+</div>
+    
 @endsection

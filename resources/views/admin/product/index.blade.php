@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h3 class="my-3"><strong>I TUOI PRODOTTI</strong></h3>
+<div class="container-fluid vh-100">
+  <h3><strong class="pt-2">I TUOI PRODOTTI</strong></h3>
     <div class="my-4">
         <a href="{{ route('admin.product.create') }}" class="mt-3 me-4 btn ms-btn shadow bg-white rounded"> <i
                 class="fa-solid fa-bowl-food"></i> Crea
@@ -39,4 +40,5 @@
             @endforeach
         </tbody>
     </table>
+</div>
 @endsection

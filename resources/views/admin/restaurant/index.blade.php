@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="container-fluid"></div>
     <div class="row justify-content-center align-items-center p-4">
         <div class="col-12 col-md-4">
             @if ($restaurant->image)
