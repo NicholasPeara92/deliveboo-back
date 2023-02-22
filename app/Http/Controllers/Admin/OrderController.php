@@ -26,11 +26,7 @@ class OrderController extends Controller
             return redirect()->route('admin.restaurant.create');
         }else{
             $products = Product::where('restaurant_id', $restaurant->id)->get();
-            foreach($products as $product){
-                $orders = Order::select('orders.*')->join('order_product', 'orders.id', '=', 'order_product.order_id');
-                @dd($orders);
-            }
-            return view('admin.order.index', compact('orders', 'restaurant'));
+            return view('admin.order.index', compact('products', 'restaurant'));
         }
     }
 

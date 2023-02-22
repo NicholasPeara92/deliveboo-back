@@ -15,7 +15,12 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($orders as $order)
+      @foreach ($products as $product) 
+      @if(count($product->orders) !== 0)
+        <tr>
+            <td colspan="7" class="text-center text-blue"><strong style="text-transform: uppercase; color: ">{{$product->name}}</strong></td></tr>
+      @endif
+      @foreach ($product->orders as $order)
         <tr>
           <td>{{ $order->name }}</td>
           <td>{{ $order->surname }}</td>
@@ -23,7 +28,7 @@
           <td>{{ $order->telephone }}</td>
           <td>{{ $order->email }}</td>
           <td>{{ $order->total }} €</td>
-          <td>{{ $order->create_order }} €</td>
+          <td>{{ $order->create_order }}</td>
           {{-- <td width="170">
             <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-success"><i
                 class="fa-solid fa-eye"></i></a>
@@ -36,6 +41,7 @@
             </form>
           </td> --}}
         </tr>
+        @endforeach
       @endforeach
     </tbody>
   </table>
