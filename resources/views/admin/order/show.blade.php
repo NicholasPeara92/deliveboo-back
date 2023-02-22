@@ -7,8 +7,8 @@
 
     {{-- imgage --}}
     <h4 class="pt-3"><strong>Nome Acquirente:</strong> {{ $order->name }}</h4>
-    <h5 class=""><strong>Cognome Acquirente:</strong> {{ $order->surname }} €</h5>
-    <p class=""><strong>Totale:</strong> {{ $order->total }}
+    <h5 class=""><strong>Cognome Acquirente:</strong> {{ $order->surname }} </h5>
+    <p class=""><strong>Totale:</strong> {{ $order->total }} €
     </p>
     <a href="{{ route('admin.order.index') }}" class="my-3 btn btn-success">Menù</i></a>
 @endsection
