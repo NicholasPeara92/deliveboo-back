@@ -32,7 +32,7 @@
                   <td>{{ $order->email }}</td>
                   <td>{{ $order->total }} €</td>
                   <td>{{ $order->create_order }}</td>
-                  <td width="170">
+                  <td width="130">
                     <a href="{{ route('admin.order.show', $order->id) }}" class="btn btn-success"><i
                         class="fa-solid fa-eye"></i></a>
                     <form action="{{ route('admin.order.destroy', $order) }}" method="POST" class="d-inline-block">
