@@ -27,7 +27,8 @@ class OrderController extends Controller
         }else{
             $products = Product::where('restaurant_id', $restaurant->id)->get();
             foreach($products as $product){
-                $orders = Order::select('order.*')->join('order_product', 'order.id', '=', 'order_product.order_id');
+                $orders = Order::select('orders.*')->join('order_product', 'orders.id', '=', 'order_product.order_id');
+                @dd($orders);
             }
             return view('admin.order.index', compact('orders', 'restaurant'));
         }

@@ -24,7 +24,7 @@
           <td>{{ $order->email }}</td>
           <td>{{ $order->total }} €</td>
           <td>{{ $order->create_order }} €</td>
-          <td width="170">
+          {{-- <td width="170">
             <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-success"><i
                 class="fa-solid fa-eye"></i></a>
             <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-warning"><i
@@ -34,7 +34,7 @@
               @method('DELETE')
               <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
             </form>
-          </td>
+          </td> --}}
         </tr>
       @endforeach
     </tbody>
