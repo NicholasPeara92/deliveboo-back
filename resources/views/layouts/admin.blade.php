@@ -60,7 +60,7 @@
               @else
                 {{-- Tasto create Restaurant --}}
                 <li class="nav-item">
-                  <a class="nav-link {{ Route::currentRouteName() == 'admin.restaurant.create' ? 'bg-secondary' : '' }}"
+                  <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.create' ? 'bg-secondary' : '' }}"
                     href="{{ route('admin.restaurant.create') }}">
                     <i class="fa-solid fa-utensils fa-lg fa-fw"></i>
                     <span>Crea ristorante</span>
