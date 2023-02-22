@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\Restaurant;
 use Illuminate\Support\Facades\Schema;
 
 class OrderSeeder extends Seeder
@@ -32,6 +34,14 @@ class OrderSeeder extends Seeder
             $new_order->total = $faker->randomFloat(2, 1, 999);
             $new_order->create_order = $faker->dateTimeBetween('-1 year', '0 days');
             $new_order->save();
+        }
+
+        $orders = Order::all();
+
+        foreach($orders as $order) {
+            $product = Product::inRandomOrder()->first();
+            $order->products()->attach($product);
+            $order->update();
         }
     }
 }
