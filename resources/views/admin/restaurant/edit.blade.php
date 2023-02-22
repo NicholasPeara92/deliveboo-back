@@ -52,21 +52,26 @@
                             };
                         </script>
                     </div>
-                    <img width="100" id="output">
+                    <img width="200" id="output"
+                        @if ($restaurant->image) src="{{ asset("storage/$restaurant->image") }}" @endif>
                     <input type="file" class="form-control" id="image" name="image" value="{{ old('image') }}"
                         onchange="loadFile(event)">
                 </div>
                 <div class="mb-3">
-                  @foreach($categories as $category)
-                  <div class="form-check form-check-inline">
-                    @if($errors->any())
-                      <input class="form-check-input" type="checkbox" id="{{$category->slug}}" name="categories[]" value="{{$category->id}}"{{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
-                    @else
-                      <input class="form-check-input" type="checkbox" id="{{$category->slug}}" name="categories[]" value="{{$category->id}}"{{ $restaurant->categories->contains($category->id) ? 'checked' : '' }}>
-                    @endif
-                    <label class="form-check-label" for="{{$category->slug}}">{{$category->name}}</label>
-                  </div>
-                @endforeach
+                    @foreach ($categories as $category)
+                        <div class="form-check form-check-inline">
+                            @if ($errors->any())
+                                <input class="form-check-input" type="checkbox" id="{{ $category->slug }}"
+                                    name="categories[]"
+                                    value="{{ $category->id }}"{{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
+                            @else
+                                <input class="form-check-input" type="checkbox" id="{{ $category->slug }}"
+                                    name="categories[]"
+                                    value="{{ $category->id }}"{{ $restaurant->categories->contains($category->id) ? 'checked' : '' }}>
+                            @endif
+                            <label class="form-check-label" for="{{ $category->slug }}">{{ $category->name }}</label>
+                        </div>
+                    @endforeach
                 </div>
 
                 {{-- <div class="mb-3">
