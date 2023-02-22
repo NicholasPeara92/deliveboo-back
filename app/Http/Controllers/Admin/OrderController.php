@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 
 class OrderController extends Controller
 {
@@ -15,7 +19,18 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+
+        if ($restaurant === null) { //checks if the user has a restaurant or not 
+            return redirect()->route('admin.restaurant.create');
+        }else{
+            $products = Product::where('restaurant_id', $restaurant->id)->get();
+            foreach($products as $product){
+                $orders = Order::select('order.*')->join('order_product', 'order.id', '=', 'order_product.order_id');
+            }
+            return view('admin.order.index', compact('orders', 'restaurant'));
+        }
     }
 
     /**

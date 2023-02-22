@@ -6,6 +6,5 @@
         @if ($restaurant)
             <h3>Benvenuto {{ $restaurant->name }}</h3>
         @endif
-
     </div>
 @endsection

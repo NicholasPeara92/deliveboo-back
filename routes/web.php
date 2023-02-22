@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Restaurant;
@@ -32,6 +33,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::resource('restaurant', RestaurantController::class)->parameters(['restaurants' => 'restaurant:slug']);
     Route::resource('product', ProductController::class)->parameters(['products' => 'product:slug']);
+    Route::resource('order', OrderController::class)->parameters(['products' => 'order:id']);
 });
 
 require __DIR__.'/auth.php';
