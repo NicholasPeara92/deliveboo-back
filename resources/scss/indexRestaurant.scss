@@ -1,0 +1,26 @@
+.ms-container {
+    height: 100vh;
+    img {
+        border-radius: 50%;
+    }
+    .ms-card {
+        background-color: #8df9e1;
+        border-radius: 20px;
+        color: white;
+        padding: 50px;
+        margin-top: 20px;
+    }
+}
+
+.ms-btn {
+    color: #1eeabd;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+@include media-breakpoint-down(md) {
+    .ms-container {
+        text-align: center;
+        padding-left: 90px;
+    }
+}
