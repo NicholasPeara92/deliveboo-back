@@ -11,7 +11,7 @@
         </h1>
 
         <p class="fs-4 text-center mt-3">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-        <div class="d-flex justify-content-center"><button class="btn btn-primary btn-lg my-5" type="button">Vai alla Dasboard</button></div>
+        <div class="d-flex justify-content-center"><button class="btn btn-primary btn-lg my-5" type="button"><a class="text-white" style="text-decoration:none;" href="{{ route('admin.dashboard') }}">Vai alla Dasboard</a></button></div>
     </div>
 </div>
 @endsection
