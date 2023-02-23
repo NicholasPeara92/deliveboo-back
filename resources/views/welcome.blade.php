@@ -2,22 +2,16 @@
 @section('content')
 
 <div class="jumbotron p-5 mb-4 bg-light rounded-3">
-    <div class="container py-5">
-        <div class="logo_laravel">
+    <div class="container py-5 mt-5 d-flex flex-column">
+        <div class="logo_laravel d-flex justify-content-center pt-5">
             <img width="300" src="{{ asset('storage/uploads/deliverboo.png') }}" alt="">
         </div>
-        <h1 class="display-5 fw-bold my-4">
-            Welcome to Deliveboo
+        <h1 class="display-5 fw-bold my-5 text-center">
+            Welcome to Deliveboo Dasboard
         </h1>
 
-        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-        <button class="btn btn-primary btn-lg" type="button">Example button</button>
-    </div>
-</div>
-
-<div class="content">
-    <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora temporibus, dicta nemo aliquam totam nisi deserunt soluta quas voluptatum ab beatae praesentium necessitatibus minus, facilis illum rerum officiis accusamus dolores!</p>
+        <p class="fs-4 text-center mt-3">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+        <div class="d-flex justify-content-center"><button class="btn btn-primary btn-lg my-5" type="button">Vai alla Dasboard</button></div>
     </div>
 </div>
 @endsection
