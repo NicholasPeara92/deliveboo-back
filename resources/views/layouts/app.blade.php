@@ -24,12 +24,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5174/') }}">
-                    <div class="logo" >
-                        <img width="150" src="{{ asset('storage/uploads/deliverboo.png') }}" alt="">
-                    </div>
-                    {{-- config('app.name', 'Laravel') --}}
-                </a>
+                
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -39,7 +34,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                            <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5174/') }}">
+                                <div class="logo" >
+                                    <img width="150" src="{{ asset('storage/uploads/deliverboo.png') }}" alt="">
+                                </div>
+                                {{-- config('app.name', 'Laravel') --}}
+                            </a>
                         </li>
                     </ul>
 
