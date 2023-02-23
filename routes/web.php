@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\CategoryController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
