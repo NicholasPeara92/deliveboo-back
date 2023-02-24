@@ -10,6 +10,7 @@
           <p class="card-text" style="font-family: Arial, sans-serif; font-size: 1.2rem; margin-top: 0.5rem;"><strong>Descrizione: </strong>{{ $product->description, $product->is_available }}</p>
           <h5 class=""><strong>Costo:</strong> {{ $product->price }} €</h5>
           <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-warning">Modifica prodotto</i></a>
+          <a href="{{ route('admin.product.index', $product->id) }}" class="my-3 btn btn-success">Menù</i></a>
         </div>
         <div class="card-footer" style="background-color: #f9f9f9;">
           <small class="text-muted" style="font-family: Arial, sans-serif; font-size: 1rem;">Ultima modifica 10 minuti fa</small>
