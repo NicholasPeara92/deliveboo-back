@@ -26,9 +26,9 @@
                     @endforeach
                 @endif
             </div>
-            <div class="card-footer" style="background-color: #f9f9f9;">
+            <div class="card-footer d-flex justify-content-center" style="background-color: #f9f9f9;">
                 <a href="{{ route('admin.restaurant.edit', $restaurant) }}"
-                    class=" me-8 btn ms-btn shadow bg-white rounded"><i class="fa-solid fa-pen"></i>Modifica</a>
+                    class="me-3 btn ms-btn shadow bg-white rounded"><i class="fa-solid fa-pen"></i>Modifica</a>
                 <button type="button" class="me-8 btn ms-btn  shadow bg-white rounded" data-bs-toggle="modal"
                     data-bs-target="#modal-{{ $restaurant->id }}"><i class="fa-solid fa-trash"></i> Elimina</button>
             </div>
