@@ -15,8 +15,5 @@
           <small class="text-muted" style="font-family: Arial, sans-serif; font-size: 1rem;">Ultima modifica 10 minuti fa</small>
         </div>
       </div>
-    </div>
-    
-    {{-- image --}}
-    
+    </div> 
 @endsection
