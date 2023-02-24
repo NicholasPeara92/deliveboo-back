@@ -34,7 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5174/') }}">
+                            <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5173/') }}">
                                 <div class="logo" >
                                     <img width="150" src="{{ asset('storage/uploads/deliverboo.png') }}" alt="">
                                 </div>
