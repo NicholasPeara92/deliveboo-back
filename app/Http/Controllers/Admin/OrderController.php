@@ -21,13 +21,14 @@ class OrderController extends Controller
     {
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
-
+        $orders = Order::all();
         if ($restaurant === null) { //checks if the user has a restaurant or not 
             return redirect()->route('admin.restaurant.create');
         }else{
             $products = Product::where('restaurant_id', $restaurant->id)->get();
-            return view('admin.order.index', compact('products', 'restaurant'));
+            return view('admin.order.index', compact('products', 'restaurant', 'orders'));            
         }
+        
     }
 
     /**

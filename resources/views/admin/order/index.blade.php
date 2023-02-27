@@ -4,7 +4,32 @@
 <div class="container-fluid vh-100">
     <div>
         <h4 class="py-4 text-center">I TUOI ORDINI</h4>
+        {{-- @dd($products) --}}
+
         <table class="w-100">
+          <thead>
+            <tr class="bg-dark">
+              <th scope="col">Nome</th>
+              <th scope="col">Cognome</th>
+              <th scope="col">Indirizzo</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Email</th>
+              <th scope="col">Totale</th>
+              <th scope="col">Data</th>
+              <th scope="col">Azioni</th>
+            </tr>
+          </thead>
+        </table>
+        
+        @foreach ($orders as $order)
+        <div>{{ $order->name }}</div> 
+
+          @foreach ($order->products as $product)
+          <span>{{ $product->name}}</span>      
+          @endforeach
+
+        @endforeach
+        {{-- <table class="w-100">
             <thead>
               <tr class="bg-dark">
                 <th scope="col">Nome</th>
@@ -45,7 +70,7 @@
                 @endforeach
               @endforeach
             </tbody>
-          </table>
+          </table> --}}
     </div>
 </div>
     
