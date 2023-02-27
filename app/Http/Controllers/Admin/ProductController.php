@@ -90,7 +90,7 @@ class ProductController extends Controller
         $restaurant = Restaurant::where('user_id', $user)->first();
 
         if($restaurant->user_id === $user && $restaurant->id === $product->restaurant_id){
-            return view('admin.product.edit', compact('product', 'restaurant'));
+            return view('admin.product.show', compact('product', 'restaurant'));
         }else{
             return redirect()->route('admin.product.index')->with('message', 'Non puoi vedere i prodotti di un altro ristorante');
         }
