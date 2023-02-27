@@ -3,6 +3,9 @@
 @section('content')
 <div class="container-fluid vh-100">
   <h3><strong class="pt-2">I TUOI PRODOTTI</strong></h3>
+    @if(Session::has('message'))
+    <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+    @endif
     <div class="my-4">
         <a href="{{ route('admin.product.create') }}" class="mt-3 me-4 btn ms-btn shadow bg-white rounded"> <i
                 class="fa-solid fa-bowl-food"></i> Crea

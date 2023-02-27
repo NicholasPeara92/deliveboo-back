@@ -1,7 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="d-flex justify-content-center flex-column align-items-center" style="height: 100vh;">
+        @if(Session::has('message'))
+        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+        @endif
         <div class="card" style="max-width: 500px; border: 2px solid #ccc; box-shadow: 0px 2px 6px #ccc;">
             @if ($restaurant->image)
                 <div>

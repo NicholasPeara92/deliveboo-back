@@ -106,7 +106,7 @@ class ProductController extends Controller
         if($restaurant->user_id === $user && $restaurant->id === $product->restaurant_id){
             return view('admin.product.edit', compact('product', 'restaurant'));
         }else{
-            return redirect()->route('admin.product.index');
+            return redirect()->route('admin.product.index')->with('message', 'Non puoi modificare i prodotti di un altro ristorante');
         }
     }
 

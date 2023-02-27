@@ -84,7 +84,10 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        return view('admin.restaurant.show', compact('restaurant'));
+        $user = Auth::user()->id;
+        $restaurant = Restaurant::where('user_id', $user)->first();
+
+        return view('admin.restaurant.index', compact('restaurant'));
     }
 
     /**
@@ -101,7 +104,7 @@ class RestaurantController extends Controller
             $categories = Category::all();
             return view('admin.restaurant.edit', compact('restaurant', 'categories'));
         }else{
-            return redirect()->route('admin.restaurant.index');
+            return redirect()->route('admin.restaurant.index')->with('message', 'Non puoi modificare il ristorante di un altro');
         }
     }
 
