@@ -104,7 +104,7 @@ class RestaurantController extends Controller
             $categories = Category::all();
             return view('admin.restaurant.edit', compact('restaurant', 'categories'));
         }else{
-            return redirect()->route('admin.restaurant.index')->with('message', 'Non puoi modificare il ristorante di un altro');
+            return redirect()->route('admin.restaurant.index')->with('message', 'Permessi non validi!');
         }
     }
 
