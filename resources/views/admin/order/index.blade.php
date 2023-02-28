@@ -18,21 +18,28 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($orders as $order)      
-            <tr class="py-2">
-              <td class="py-2">{{ $order->name }}</td>
-              <td>{{ $order->surname }}</td>
-              <td>{{ $order->address }}</td>
-              <td>{{ $order->telephone }}</td>
-              <td>{{ $order->email }}</td>
-              <td>{{ $order->create_order }}</td>
-              <td>
-                @foreach ($order->products as $product)
-                {{ $product->name }}
-                @endforeach 
-              </td>
-              <td>{{ $order->total }} €</td>
-            </tr>
+          @foreach ($orders as $order)          
+            @foreach ($order->products as $product)
+            @if($product->restaurant_id === $restaurant->id)
+              <tr class="py-2">
+                <td class="py-2">{{ $order->name }}</td>
+                <td>{{ $order->surname }}</td>
+                <td>{{ $order->address }}</td>
+                <td>{{ $order->telephone }}</td>
+                <td>{{ $order->email }}</td>
+                <td>{{ $order->create_order }}</td>
+                <td>
+                  @foreach ($order->products as $product)
+                  @if($product->restaurant_id === $restaurant->id)
+                  {{ $product->name }}
+                  {{-- {{$order->name}} --}}
+                  @endif
+                  @endforeach 
+                </td>
+                <td>{{ $order->total }} €</td>
+              </tr>
+              @endif
+              @endforeach
           @endforeach
         </tbody>
       </table>
