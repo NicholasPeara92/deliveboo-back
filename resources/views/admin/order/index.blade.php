@@ -31,6 +31,7 @@
                 <td>
                   @foreach ($order->products as $product)
                   @if($product->restaurant_id === $restaurant->id)
+                  {{-- @dd($product) --}}
                   {{ $product->name }}
                   {{-- {{$order->name}} --}}
                   @endif
