@@ -36,7 +36,7 @@ class OrderController extends Controller
 
         foreach($data['products'] as $product) {
             
-            $productAssociation = Product::where($product->id)->first();
+            $productAssociation = Product::where('id', $product['id'])->first();
             $new_order->products()->attach($productAssociation, [
                 'quantity' => $product->quantity,
             ]);
