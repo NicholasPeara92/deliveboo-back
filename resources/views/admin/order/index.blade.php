@@ -19,9 +19,8 @@
         </thead>
         <tbody>
 
-          @foreach ($orders as $order)          
-            @foreach ($order->products as $product)
-            @if($product->restaurant_id === $restaurant->id)
+          @foreach ($orders as $order)   
+          @if($order->products->contains('restaurant_id', $restaurant->id))       
               <tr class="py-2">
                 <td class="py-2">{{ $order->name }}</td>
                 <td>{{ $order->surname }}</td>
@@ -39,7 +38,6 @@
                 <td>{{ $order->total }} €</td>
               </tr>
               @endif
-              @endforeach
           @endforeach
         </tbody>
       </table>

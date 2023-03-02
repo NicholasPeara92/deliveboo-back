@@ -27,7 +27,7 @@ class OrderController extends Controller
         if ($restaurant === null) { //checks if the user has a restaurant or not 
             return redirect()->route('admin.restaurant.create');
         }else{
-            // $products = Product::where('restaurant_id', $restaurant->id)->get();
+            $products = Product::where('restaurant_id', $restaurant->id)->get();
             // $orderProducts = [];
             // foreach($products as $product){
             //     @dd($product->orders());
