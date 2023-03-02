@@ -22,12 +22,19 @@ class OrderController extends Controller
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
         $orders = Order::all();
+        
         $products = [];
         if ($restaurant === null) { //checks if the user has a restaurant or not 
             return redirect()->route('admin.restaurant.create');
         }else{
-            $products = Product::where('restaurant_id', $restaurant->id)->get();
-            return view('admin.order.index', compact('products', 'restaurant', 'orders'));            
+            // $products = Product::where('restaurant_id', $restaurant->id)->get();
+            // $orderProducts = [];
+            // foreach($products as $product){
+            //     @dd($product->orders());
+            //      $orderProducts.array_push($product->orders());
+            // }
+
+            return view('admin.order.index', compact('orders', 'restaurant', 'orders'));            
         }
 
         foreach ($orders as $order){

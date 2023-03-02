@@ -38,7 +38,7 @@ class OrderController extends Controller
             
             $productAssociation = Product::where('id', $product['id'])->first();
             $new_order->products()->attach($productAssociation, [
-                'quantity' => $product->quantity,
+                'quantity' => $product['quantity'],
             ]);
             $new_order->update();
         }
