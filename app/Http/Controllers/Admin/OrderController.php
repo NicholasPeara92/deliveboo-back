@@ -34,7 +34,7 @@ class OrderController extends Controller
             //      $orderProducts.array_push($product->orders());
             // }
 
-            return view('admin.order.index', compact('orders', 'restaurant', 'orders'));            
+            return view('admin.order.index', compact('orders', 'restaurant', 'products'));            
         }
 
         foreach ($orders as $order){

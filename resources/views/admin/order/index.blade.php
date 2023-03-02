@@ -14,6 +14,7 @@
             <th scope="col">Email</th>
             <th scope="col">Data ordine</th>
             <th scope="col">Prodotti</th>
+            <th scope="col">Quantità</th>
             <th scope="col">Totale</th>
           </tr>
         </thead>
@@ -29,12 +30,25 @@
                 <td>{{ $order->email }}</td>
                 <td>{{ $order->create_order }}</td>
                 <td>
-                  @foreach ($order->products as $product)
-                  @if($product->restaurant_id === $restaurant->id)
-                  {{-- @dd($product) --}}
-                  {{ $product->name }}
-                  @endif
-                  @endforeach 
+                  <ul>
+                    @foreach ($order->products as $product)
+                    @if($product->restaurant_id === $restaurant->id)
+                    <li>{{ $product->name }}</li>
+                    @endif
+                    @endforeach
+                  </ul>                   
+                </td>
+                <td>
+                  <ul>
+                    @foreach ($order->products as $product)
+                      @if($product->restaurant_id === $restaurant->id)                                      
+                      <li>{{ $product->pivot->quantity }}</li>
+                      @endif
+                    @endforeach
+                  </ul>                   
+                </td>
+                <td>
+                       
                 </td>
                 <td>{{ $order->total }} €</td>
               </tr>
