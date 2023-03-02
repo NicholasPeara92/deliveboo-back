@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
     public function index(){
-        
+
     }
 
     public function store(Request $request){
@@ -32,5 +33,15 @@ class OrderController extends Controller
         $new_order->email = $data['email'];
         $new_order->create_order = now();
         $new_order->save();
+
+        foreach($data['products'] as $product) {
+            
+            $productAssociation = Product::where($product->id)->first();
+            $new_order->products()->attach($productAssociation, [
+                'quantity' => $product->quantity,
+            ]);
+            $new_order->update();
+        }
+        
     }
 }
