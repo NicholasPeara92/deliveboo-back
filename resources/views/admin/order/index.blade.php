@@ -18,6 +18,7 @@
           </tr>
         </thead>
         <tbody>
+
           @foreach ($orders as $order)          
             @foreach ($order->products as $product)
             @if($product->restaurant_id === $restaurant->id)
@@ -33,7 +34,6 @@
                   @if($product->restaurant_id === $restaurant->id)
                   {{-- @dd($product) --}}
                   {{ $product->name }}
-                  {{-- {{$order->name}} --}}
                   @endif
                   @endforeach 
                 </td>
