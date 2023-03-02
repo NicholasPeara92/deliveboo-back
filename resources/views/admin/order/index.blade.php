@@ -47,9 +47,6 @@
                     @endforeach
                   </ul>                   
                 </td>
-                <td>
-                       
-                </td>
                 <td>{{ $order->total }} €</td>
               </tr>
               @endif
