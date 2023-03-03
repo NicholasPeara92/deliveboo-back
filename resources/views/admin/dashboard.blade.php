@@ -5,14 +5,14 @@
     <div>
         <h1><strong>DASHBOARD</strong></h1>
         @if ($restaurant)
-            <h3>Benvenuto '{{ $restaurant->name }}'</h3>
+            <h2>Benvenuto '{{ $restaurant->name }}'</h2>
         @endif
     </div>
     {{-- Ultimi ordini --}}
     @if($orders)
-    <div>
+    <div class="border border-3 rounded-end p-2 mb-2">
         <h4>Ultimi ordini:</h4>       
-        <table>
+        <table class="table">
             <thead>
                 <tr class="bg-dark">
                     <th scope="col">id</th>
@@ -60,34 +60,35 @@
                 </tr>
                 @endif
                 @endforeach
-              </tbody>
+            </tbody>
         </table>    
     </div>
     @endif
     {{-- Fine ultimi ordini --}}
     {{-- Ultimi piatti aggiunti --}}
     @if($myproducts)
-    <h4>Ultimi prodotti:</h4>
-    <table class="table">
-        <thead>
-            <tr class="bg-dark">
-                <th scope="col">Nome Prodotto</th>
-                <th scope="col">Tipologia</th>
-                <th scope="col">Descrizione</th>
-            </tr>
-        </thead>
-        <t-body>
-            @foreach($myproducts as $product)
-            <tr>
-                <td>{{ $product->name }}</td>
-                <td>{{ $product->type }}</td>
-                <td>{{ $product->description }}</td>
-            </tr>            
-            @endforeach
-        </t-body>
-    </table>
+    <div class="border border-3 rounded-end p-2">
+        <h4>Ultimi prodotti:</h4>
+        <table class="table">
+            <thead>
+                <tr class="bg-dark">
+                    <th scope="col">Nome Prodotto</th>
+                    <th scope="col">Tipologia</th>
+                    <th scope="col">Descrizione</th>
+                </tr>
+            </thead>
+            <t-body>
+                @foreach($myproducts as $product)
+                <tr>
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->type }}</td>
+                    <td>{{ $product->description }}</td>
+                </tr>            
+                @endforeach
+            </t-body>
+        </table>
+    </div>
     @endif
     {{-- Fine ultimi piatti aggiunti --}}
-</div>
-    
+</div>    
 @endsection

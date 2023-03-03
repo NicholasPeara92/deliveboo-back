@@ -13,7 +13,7 @@
     </div>
     <table class="table">
         <thead>
-            <tr>
+            <tr class="bg-dark">
                 <th scope="col">Nome Prodotto</th>
                 <th scope="col">Tipologia</th>
                 <th scope="col">Descrizione</th>
@@ -23,7 +23,7 @@
         </thead>
         <tbody>
             @foreach ($products as $product)
-                <tr class="bg-dark">
+                <tr>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->type }}</td>
                     <td>{{ $product->description }}</td>
