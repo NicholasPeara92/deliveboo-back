@@ -75,6 +75,7 @@
                     <th scope="col">Nome Prodotto</th>
                     <th scope="col">Tipologia</th>
                     <th scope="col">Descrizione</th>
+                    <th scope="col">Ultima modifica</th>
                 </tr>
             </thead>
             <t-body>
@@ -83,6 +84,7 @@
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->type }}</td>
                     <td>{{ $product->description }}</td>
+                    <td>{{ $product->updated_at }}</td>
                 </tr>            
                 @endforeach
             </t-body>
