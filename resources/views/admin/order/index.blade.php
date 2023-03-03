@@ -19,7 +19,6 @@
           </tr>
         </thead>
         <tbody>
-
           @foreach ($orders as $order)   
           @if($order->products->contains('restaurant_id', $restaurant->id))       
               <tr class="py-2">
