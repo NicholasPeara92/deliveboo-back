@@ -19,8 +19,8 @@
                 <a href="{{ route('admin.product.index', $product->id) }}" class="my-3 btn btn-success">Menù</i></a>
             </div>
             <div class="card-footer" style="background-color: #f9f9f9;">
-                <small class="text-muted" style="font-family: Arial, sans-serif; font-size: 1rem;">Ultima modifica 10 minuti
-                    fa</small>
+                <small class="text-muted" style="font-family: Arial, sans-serif; font-size: 1rem;">Ultima modifica: {{$product->updated_at}}
+                </small>
             </div>
         </div>
     </div>
