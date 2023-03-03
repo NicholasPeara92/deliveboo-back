@@ -9,9 +9,11 @@
         @endif
     </div>
     <div>
+       
         <table>
             <thead>
                 <tr class="bg-dark">
+                    <th scope="col">id</th>
                   <th scope="col">Nome</th>
                   <th scope="col">Cognome</th>
                   <th scope="col">Indirizzo</th>
@@ -24,8 +26,10 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($myorders as $order)          
+                @foreach ($orders as $order)
+                @if($order->products->contains('restaurant_id', $restaurant->id))         
                 <tr class="py-2">
+                    <td class="py-2">{{ $order->id }}</td>
                     <td class="py-2">{{ $order->name }}</td>
                     <td>{{ $order->surname }}</td>
                     <td>{{ $order->address }}</td>
@@ -52,6 +56,7 @@
                     </td>
                     <td>{{ $order->total }} €</td>
                 </tr>
+                @endif
                 @endforeach
               </tbody>
         </table>

@@ -31,23 +31,23 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/dashboard', function () {
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
-        $orders = Order::orderBy('create_order', 'DESC')->take(3)->get();
+        $orders = Order::orderBy('create_order', 'DESC')->groupBy('id')->take(3)->get();
         if ($restaurant === null) { //checks if the user has a restaurant or not 
             return redirect()->route('admin.restaurant.create');
         }else{
             $products = Product::where('restaurant_id', $restaurant->id)->get();
             
-            $myorders = [];
-            foreach ($orders as $order){
-                foreach($order->products as $product){
-                    if($product->restaurant_id === $restaurant->id){
-                        array_push($myorders, $order);
-                    }
-                }
-            }
+            // $myorders = [];
+            // foreach ($orders as $order){
+            //     foreach($order->products as $product){
+            //         if($product->restaurant_id === $restaurant->id){
+            //             array_push($myorders, $order);
+            //         }
+            //     }
+            // }
            
 
-            return view('admin.dashboard', compact('restaurant', 'products', 'myorders'));
+            return view('admin.dashboard', compact('restaurant', 'products', 'orders'));
         }
     })->name('dashboard');
 
