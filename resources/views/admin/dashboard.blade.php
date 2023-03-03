@@ -8,8 +8,10 @@
             <h3>Benvenuto '{{ $restaurant->name }}'</h3>
         @endif
     </div>
+    {{-- Ultimi ordini --}}
+    @if($orders)
     <div>
-       
+        <h4>Ultimi ordini:</h4>       
         <table>
             <thead>
                 <tr class="bg-dark">
@@ -59,8 +61,33 @@
                 @endif
                 @endforeach
               </tbody>
-        </table>
+        </table>    
     </div>
+    @endif
+    {{-- Fine ultimi ordini --}}
+    {{-- Ultimi piatti aggiunti --}}
+    @if($myproducts)
+    <h4>Ultimi prodotti:</h4>
+    <table class="table">
+        <thead>
+            <tr class="bg-dark">
+                <th scope="col">Nome Prodotto</th>
+                <th scope="col">Tipologia</th>
+                <th scope="col">Descrizione</th>
+            </tr>
+        </thead>
+        <t-body>
+            @foreach($myproducts as $product)
+            <tr>
+                <td>{{ $product->name }}</td>
+                <td>{{ $product->type }}</td>
+                <td>{{ $product->description }}</td>
+            </tr>            
+            @endforeach
+        </t-body>
+    </table>
+    @endif
+    {{-- Fine ultimi piatti aggiunti --}}
 </div>
     
 @endsection

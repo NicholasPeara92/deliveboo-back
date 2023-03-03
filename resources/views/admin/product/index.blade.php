@@ -23,7 +23,7 @@
         </thead>
         <tbody>
             @foreach ($products as $product)
-                <tr>
+                <tr class="bg-dark">
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->type }}</td>
                     <td>{{ $product->description }}</td>

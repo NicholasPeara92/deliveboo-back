@@ -36,18 +36,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
             return redirect()->route('admin.restaurant.create');
         }else{
             $products = Product::where('restaurant_id', $restaurant->id)->get();
-            
-            // $myorders = [];
-            // foreach ($orders as $order){
-            //     foreach($order->products as $product){
-            //         if($product->restaurant_id === $restaurant->id){
-            //             array_push($myorders, $order);
-            //         }
-            //     }
-            // }
-           
-
-            return view('admin.dashboard', compact('restaurant', 'products', 'orders'));
+            $myproducts = Product::where('restaurant_id', $restaurant->id)->orderBy('created_at', 'DESC')->take(3)->get();
+            return view('admin.dashboard', compact('restaurant', 'products', 'orders', 'myproducts'));
         }
     })->name('dashboard');
 
