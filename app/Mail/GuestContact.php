@@ -9,11 +9,12 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class DelivebooContact extends Mailable
+class GuestContact extends Mailable
 {
     use Queueable, SerializesModels;
-
+    
     public $order;
+
 
     /**
      * Create a new message instance.
@@ -33,7 +34,7 @@ class DelivebooContact extends Mailable
     public function envelope()
     {
         return new Envelope(
-            replyTo: 'noreply@deliveboo.it',
+            replyTo: 'info@deliveboo.it',
             subject: 'Nuovo Ordine',
         );
     }
@@ -46,7 +47,7 @@ class DelivebooContact extends Mailable
     public function content()
     {
         return new Content(
-            view: 'mail.new-email',
+            view: 'mail.guest-email',
         );
     }
 

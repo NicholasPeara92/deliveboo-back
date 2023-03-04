@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Mail\GuestContact;
+use App\Mail\DelivebooContact;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -44,8 +47,8 @@ class OrderController extends Controller
             ]);
             $new_order->update();
         }
-        // Mail::to("noreply@deliveboo.it")->send(new DelivebooContact($new_order));
-        // Mail::to("info@delivebool.com")->send(new NewOrderGuest($new_order));
+        Mail::to("noreply@deliveboo.it")->send(new DelivebooContact($new_order));
+        Mail::to("noreply@deliveboo.it")->send(new GuestContact($new_order));
         
         return response()->json(['message' => 'Ordine creato con successo.',$new_order->products(),$new_order->id]);
     }
