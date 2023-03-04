@@ -22,6 +22,7 @@ class OrderController extends Controller
             'total' => 'required|decimal:2',
             'address' => 'required|string'
         ]);
+        
         $data = $request->all();
 
         $new_order = new Order();
@@ -43,6 +44,6 @@ class OrderController extends Controller
             ]);
             $new_order->update();
         }
-        
+
     }
 }

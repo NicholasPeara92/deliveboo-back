@@ -13,14 +13,16 @@ class DelivebooContact extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $order;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($_order)
     {
-        //
+        $this->order = $_order;
     }
 
     /**
@@ -31,7 +33,8 @@ class DelivebooContact extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Deliveboo Contact',
+            replyTo: 'noreply@deliveboo.it',
+            subject: 'Nuovo Ordine',
         );
     }
 
@@ -43,7 +46,7 @@ class DelivebooContact extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'Mail.new-email',
         );
     }
 
