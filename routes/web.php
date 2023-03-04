@@ -31,13 +31,26 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/dashboard', function () {
         $user = Auth::user()->id;
         $restaurant = Restaurant::where('user_id', $user)->first();
-        $orders = Order::orderBy('create_order', 'DESC')->groupBy('id')->take(3)->get();
+        // $orders = Order::orderBy('create_order', 'DESC')->groupBy('id')->take(3)->get();
+        
         if ($restaurant === null) { //checks if the user has a restaurant or not 
             return redirect()->route('admin.restaurant.create');
-        }else{
+        }else{ 
             $products = Product::where('restaurant_id', $restaurant->id)->get();
             $myproducts = Product::where('restaurant_id', $restaurant->id)->orderBy('created_at', 'DESC')->take(3)->get();
-            return view('admin.dashboard', compact('restaurant', 'products', 'orders', 'myproducts'));
+            
+            //
+            $orders = Order::orderBy('create_order', 'DESC')->groupBy('id')->get();
+            $myorders = [];
+            $i = 0;
+            foreach($orders as $order){
+                if($order->products->contains('restaurant_id', $restaurant->id) & $i < 3){
+                    array_push($myorders, $order);
+                    $i++;
+                }
+            } 
+            //
+            return view('admin.dashboard', compact('restaurant', 'products', 'orders', 'myproducts', 'myorders'));
         }
     })->name('dashboard');
 

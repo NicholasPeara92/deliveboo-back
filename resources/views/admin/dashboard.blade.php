@@ -28,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($orders as $order)
+                @foreach ($myorders as $order)
                 @if($order->products->contains('restaurant_id', $restaurant->id))         
                 <tr class="py-2">
                     <td class="py-2">{{ $order->id }}</td>
