@@ -44,6 +44,9 @@ class OrderController extends Controller
             ]);
             $new_order->update();
         }
-
+        // Mail::to("noreply@deliveboo.it")->send(new DelivebooContact($new_order));
+        // Mail::to("info@delivebool.com")->send(new NewOrderGuest($new_order));
+        
+        return response()->json(['message' => 'Ordine creato con successo.',$new_order->products(),$new_order->id]);
     }
 }
