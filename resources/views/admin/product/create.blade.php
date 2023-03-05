@@ -25,7 +25,7 @@
                 <div class="mb-3">
                     <label for="type" class="form-label">Tipologia *</label>
                     <input type="text" class="form-control" id="type" name="type"
-                        placeholder="Inserisci l'indirizzo" {{ old('type') }} required>
+                        placeholder="Inserisci la tipologia del prodotto" {{ old('type') }} required>
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label d-block">Descrizione *</label>
