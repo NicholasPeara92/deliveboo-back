@@ -23,9 +23,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('admin.dashboard');
+// });
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
@@ -39,8 +39,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
             $products = Product::where('restaurant_id', $restaurant->id)->get();
             $myproducts = Product::where('restaurant_id', $restaurant->id)->orderBy('created_at', 'DESC')->take(3)->get();
             
-            //
-            $orders = Order::orderBy('create_order', 'DESC')->groupBy('id')->get();
+            
+            $orders = Order::select('*')->orderBy('create_order', 'DESC')->get();
             $myorders = [];
             $i = 0;
             foreach($orders as $order){
