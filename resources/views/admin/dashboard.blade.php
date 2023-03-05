@@ -9,7 +9,7 @@
       @endif
     </div>
     {{-- Ultimi ordini --}}
-    @if ($orders)
+    @if ($myorders)
       <div style="min-width: 1100px;" class="border border-3 rounded-end p-2 mb-2">
         <h4>Ultimi ordini:</h4>
         <table class="table">
@@ -39,7 +39,6 @@
                   <td>{{ $order->email }}</td>
                   <td>{{ $order->create_order }}</td>
                   <td>
-
                     <ul>
                       @foreach ($order->products as $product)
                         @if ($product->restaurant_id === $restaurant->id)
@@ -64,6 +63,8 @@
           </tbody>
         </table>
       </div>
+    @else
+    <h4>Non sono presenti ordini.</h4>
     @endif
     {{-- Fine ultimi ordini --}}
     {{-- Ultimi piatti aggiunti --}}
