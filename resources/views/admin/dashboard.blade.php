@@ -6,6 +6,7 @@
       <h1><strong>{{ $restaurant->name }}</strong></h1>
       @if ($restaurant)
         <h2>Riepilogo del tuo ristorante</h2>
+        <hr>
       @endif
     </div>
     {{-- Ultimi ordini --}}
@@ -68,7 +69,8 @@
     @endif
     {{-- Fine ultimi ordini --}}
     {{-- Ultimi piatti aggiunti --}}
-    @if ($myproducts)
+    {{-- @dd(sizeof($myproducts)) --}}
+    @if (sizeof($myproducts) > 0)
       <div style="min-width: 700px;" class="border border-3 rounded-end p-2">
         <h4>Ultimi prodotti:</h4>
         <table style="min-width: 600px" class="table">
@@ -93,7 +95,11 @@
         </table>
       </div>
     @else
-        <h4>Non sono ancora presenti piatti</h4>
+    <div>
+        <h4>Non sono ancora presenti piatti. 
+            <a href="{{ route('admin.product.create') }}"> Clicca qui </a> 
+            per aggiungere un piatto.</h4>
+    </div>        
     @endif
     {{-- Fine ultimi piatti aggiunti --}}
   </div>
