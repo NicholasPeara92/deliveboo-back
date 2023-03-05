@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="container-fluid vh-100">
+  <div class="container-fluid vh-100 ms-sm-5 ps-sm-5 ms-lg-0">
     <div>
       <h1><strong>{{ $restaurant->name }}</strong></h1>
       @if ($restaurant)
@@ -10,7 +10,7 @@
     </div>
     {{-- Ultimi ordini --}}
     @if ($orders)
-      <div class="border border-3 rounded-end p-2 mb-2">
+      <div style="min-width: 1100px;" class="border border-3 rounded-end p-2 mb-2">
         <h4>Ultimi ordini:</h4>
         <table class="table">
             <thead>
@@ -68,9 +68,9 @@
     {{-- Fine ultimi ordini --}}
     {{-- Ultimi piatti aggiunti --}}
     @if ($myproducts)
-      <div class="border border-3 rounded-end p-2">
+      <div style="min-width: 700px;" class="border border-3 rounded-end p-2">
         <h4>Ultimi prodotti:</h4>
-        <table class="table">
+        <table style="min-width: 600px" class="table">
           <thead>
             <tr class="bg-dark">
               <th scope="col">Nome Prodotto</th>

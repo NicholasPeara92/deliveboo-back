@@ -4,7 +4,7 @@
 <div class="container-fluid vh-100">
     <div>
       <h4 class="py-4 text-center">I TUOI ORDINI</h4>
-      <table class="w-100">
+      <table class="w-100 ms-sm-5 ps-sm-5 ms-lg-0">
         <thead>
           <tr class="bg-dark">
             <th scope="col">Nome</th>
