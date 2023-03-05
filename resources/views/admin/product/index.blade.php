@@ -7,10 +7,11 @@
     <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
     @endif
     <div class="my-4">
-        <a href="{{ route('admin.product.create') }}" class="mt-3 me-4 btn ms-btn shadow bg-white rounded"> <i
-                class="fa-solid fa-bowl-food"></i> Crea
-            un nuovo Prodotto</a>
+        <a href="{{ route('admin.product.create') }}" class="mt-3 me-4 btn ms-btn shadow bg-white rounded"> 
+            <i class="fa-solid fa-bowl-food"></i> Crea un nuovo Prodotto
+        </a>
     </div>
+    @if(sizeof($products))        
     <table class="table">
         <thead>
             <tr class="bg-dark">
@@ -62,5 +63,11 @@
             @endforeach
         </tbody>
     </table>
+    @else
+    <div>
+        <h4>Non sono ancora presenti prodotti. Comincia ad aggiunge prodotti al tuo ristorante!
+        </h4>
+    </div>        
+    @endif
 </div>
 @endsection
