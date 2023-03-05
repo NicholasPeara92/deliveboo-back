@@ -31,7 +31,7 @@
         <div class="container-fluid vh-100">
             <div class="row h-100">
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark position-fixed h-100 pt-3">
-                    <a class="navbar-brand col-md-3 col-lg-2" href="/"><img class="w-100"
+                    <a class="navbar-brand col-md-3 col-lg-2" href="{{ env('APP_FRONTEND_URL') }}"><img class="w-100"
                             src="{{ asset('storage/uploads/deliverboo.png') }}" alt="Deliveboo"></a>
                     <div class="position-sticky pt-3 h-100">
                         <ul class="nav flex-column h-100">
