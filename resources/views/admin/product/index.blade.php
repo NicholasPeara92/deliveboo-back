@@ -33,11 +33,30 @@
                                 class="fa-solid fa-eye"></i></a>
                         <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-warning"><i
                                 class="fa-solid fa-pencil"></i></a>
-                        <form action="{{ route('admin.product.destroy', $product) }}" method="POST" class="d-inline-block">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                        </form>
+                            <button type="button" data-bs-toggle="modal"
+                            data-bs-target="#modal-{{ $product->id }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                        <div class="modal fade" id="modal-{{ $product->id }}" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Conferma</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Sei sicuro di eliminare il tuo prodotto "{{ $product->name }}"?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                        <form action="{{ route('admin.product.destroy', $product) }}" method="POST"
+                                            class="d-inline-block">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-primary">Si</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             @endforeach
