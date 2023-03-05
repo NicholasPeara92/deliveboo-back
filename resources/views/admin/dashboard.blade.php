@@ -92,6 +92,8 @@
           </t-body>
         </table>
       </div>
+    @else
+        <h4>Non sono ancora presenti piatti</h4>
     @endif
     {{-- Fine ultimi piatti aggiunti --}}
   </div>
