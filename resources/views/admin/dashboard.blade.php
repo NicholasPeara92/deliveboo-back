@@ -98,7 +98,8 @@
     <div>
         <h4>Non sono ancora presenti piatti. 
             <a href="{{ route('admin.product.create') }}"> Clicca qui </a> 
-            per aggiungere un piatto.</h4>
+            per aggiungere un piatto.
+        </h4>
     </div>        
     @endif
     {{-- Fine ultimi piatti aggiunti --}}
